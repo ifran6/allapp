@@ -1,0 +1,5 @@
+angular.js
+ to install : npm install -g typescript
+
+ npm install -g @angular/cli 
+ ng -- version to confirm the version
