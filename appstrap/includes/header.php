@@ -28,7 +28,7 @@
     <div class="header-left-box">
     <ul class="super-nav d-flex">
                     <li><a href="pages/user_action.php" class="nav-linker">Sign In</a></li>
-                    <li><a href="pages/user_action.php" class="nav-linker">Register</a></li>
+                    <!-- <li><a href="pages/user_action.php" class="nav-linker">Register</a></li> -->
                     <!-- <li><a href="#" class="nav-linker">LinedIn</a> -->
                     </ul>
     </div>

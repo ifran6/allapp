@@ -1,5 +1,5 @@
 <?php
-include_once('connect_net.php');  
+include_once('connect.php');  
 // $conn = connectToCharger();
 if($_SERVER['REQUEST_METHOD'] === "POST"){
    
@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
 
     if(!empty($username) || !empty($password)){
       
-       if($stmt = $conn->prepare("SELECT * FROM app_user WHERE email = ?"))
+       if($stmt = $conn->prepare("SELECT * FROM user_tab WHERE email = ?"))
        {
             $stmt->bind_param("s", $username);
             $stmt->execute();
@@ -24,13 +24,22 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
 
             if($sql->num_rows === 1){
                 $user = $sql->fetch_assoc();
-               if(password_verify($password, $user['password'])){
-                  echo "<p class='alert alert-success p-2'> logging successfully!</p>";
-               }else{
-                 echo "<p class='alert alert-danger p-2'> Invalid Password!</p>";
-               }
+            //    if(password_verify($password, $user['password_hash'])){
+            //       echo "<p class='alert alert-success p-2'> logging successfully!</p>";
+            //    }else{
+            //      echo "<p class='alert alert-danger p-2'> Invalid Login!</p>";
+            //    }
+             if($password == $user['password_hash']){
+                session_start();
+                $_SESSION['user_email'] = $user['email'];
+                 $_SESSION['user_names'] = $user['last_name'] ." ". $user['first_name'] ;
+                 
+                echo "<p class='text-success p-2'> Login Successfully!!</p>";
+             }else{
+                 echo "<p class='text-danger'> Couldn't Login</p>";
+             }
             }else{
-                echo  "<p class='alert alert-warning p-2'> No User Found!</p>";;
+                echo  "<p class='text-danger p-2'> No User Found!</p>";;
             }
        }
 

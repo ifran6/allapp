@@ -51,7 +51,8 @@ function formSwitchHandler(){
 function loginFormHandler(){
     const responseMsg = document.querySelector('.response');
     const loginHandler = document.querySelector('.frm-login');
-    loginHandler.addEventListener('submit', (ev)=> {
+    if(loginHandler){
+          loginHandler.addEventListener('submit', (ev)=> {
         ev.preventDefault();
 
         const formData = new FormData(ev.target);
@@ -65,9 +66,18 @@ function loginFormHandler(){
          }else{
             fetch('../includes/login_app.php', {
                 method:"POST",
-                body:formData
+                body:formData,
             })
-            .then(res => res.text())
+            // .then(res => res.text())
+            .then(response=>{
+                if(!response.ok){ 
+                  throw new Error(`Server responded with status: ${response.status}`);
+                   
+                }else{
+                     window.location.href = "welcome.php";
+                }
+                return response.text();
+            })
             .then(data => {responseMsg.innerHTML = data;
                 //  loginHandler.reset();
                 })
@@ -77,41 +87,54 @@ function loginFormHandler(){
          }
         
     });
+    }
 }
 
 
 function registrationFormHandler(){
     const registrationHandler = document.querySelector('.frm-register');
-    const responseMsg = document.querySelector('.hintmsg');
+    const regMsg = document.querySelector('.hintmsg');
 
-    registrationHandler.addEventListener('submit', (e) =>{
+    if(registrationHandler){
+        registrationHandler.addEventListener('submit', (e) =>{
         e.preventDefault();
         const form = new FormData(e.target);
 
         const username = document.querySelector('.username').value.trim();
+        const lastName = document.querySelector('.last-name').value.trim();
+        const firstName = document.querySelector('.first-name').value.trim();
         const email = document.querySelector('.email').value.trim();
         const userPassword= document.querySelector('.password').value.trim();
         const confirmPass = document.querySelector('.confirm-password').value.trim();
 
-        if(username == "" || email == "" ||userPassword == "" || confirmPass == ""){
-            responseMsg.innerHTML = "<p class='alert alert-danger'>Please fill out the forms</p>";
+        if(username == "" || lastName == "" || firstName == "" || email == "" ||userPassword == "" || confirmPass == ""){
+            regMsg.innerHTML = "<p class='alert alert-danger'>Please fill out the forms</p>";
         }else if(userPassword !== confirmPass  ){
-             responseMsg.innerHTML = "<p class='alert alert-danger'>Password doesn't Match!</p>";
+             regMsg.innerHTML = "<p class='alert alert-danger'>Password doesn't Match!</p>";
         }else{
-             fetch('../includes/register.php', {
-                method:"POST",
-                body:form,
-            })
-            .then(res => res.text())
-            .then(data => {responseMsg.innerHTML = data;
-                //  loginHandler.reset();
+           fetch('../includes/register.php', {
+                    method:"POST",
+                    body:form,
                 })
-            .catch(err => {
-             responseMsg.innerHTML = "Err"+err;
-            });
-         }
+                .then(response => {
+                    if(!response.ok){
+                        throw new Error(`Server responded with status: ${response.status}`);
+                    }
+                    else{
+                    //    setTimeout(()=>{ window.location.href = "./user_action.php";}, 2000);
+                    }
+                return response.text();
+                })
+                .then(data => {regMsg.innerHTML = data;
+                    //  loginHandler.reset();
+                    })
+                .catch(err => {
+                regMsg.innerHTML = "Err"+err;
+                });
+        }
         
-    });
+         });
+    }
     
 }
 

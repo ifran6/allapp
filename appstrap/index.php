@@ -1,5 +1,5 @@
 <?php
-include_once('includes/connect_net.php');
+include_once('includes/connect.php');
 $pageName = "Home";
 $topic = "Main";
 

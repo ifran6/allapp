@@ -1,0 +1,1 @@
+INSERT INTO `user_tab`(`user_id`, `username`, `email`, `password_hash`, `first_name`, `last_name`, `is_active`, `created_at`, `updated_at`) VALUES ('1','admin','admin@gmail.com','admin','admin','admin1','1',NOW(),NOW())
