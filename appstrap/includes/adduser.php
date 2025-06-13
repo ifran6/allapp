@@ -21,11 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }else if(isEmailTaken($email)){
                      echo "<p class='text-danger text-center'> Email-ID is not avaliable! </p>";
                 }else{
-                     if(inserter($username, $email, $password, $firstName, $lastName, $is_active, $created_at, $updated_at)){
-                        echo "<p class='text-success text-center'> Add user! </p>";
-                    }else{
-                         echo "<p class='text-danger text-center'> Add user! </p>";
-                    }
+                    if(inserter($username, $email, $password, $first_name, $last_name, $is_active, $created_at = `NOW()`, $updated_at = `NOW()`)){echo "<p class='text-success'> User saved! !</p>";}
+                    else{echo "<p class='text-danger'> User not saved! !</p>";}
                 } 
             }
         

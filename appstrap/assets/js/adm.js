@@ -113,7 +113,11 @@ function updateFormHandler() {
             const updateEmail = document.querySelector('.update_email').value.trim();
             const updatePass = document.querySelector('.update_pass').value.trim();
 
-            if(updateUsername !== "" || updateLname !== "" || updateFname !== "" || updateEmail !== "" || updatePass !== ""){
+            if(updateUsername !== "" 
+                && updateLname !== ""
+                && updateFname !== "" 
+                && updateEmail !== ""
+                && updatePass !== ""){
 
                 fetch('../includes/update.php',{
                         method:'POST',
@@ -148,3 +152,65 @@ function updateFormHandler() {
 updateFormHandler();
 // addNewUser();
 viewHandlers();
+
+function addRoleFormHandler() {
+    const addRoleForm = document.querySelector(".add_role_form");
+        const addRoleErrMsg= document.querySelector(".add_role_Emsg");
+    
+    if(addRoleForm){
+        addRoleForm.addEventListener('submit', (e)=>{
+            e.preventDefault();
+            
+            const myForm = new FormData(e.target);
+            const addRoleUsername = document.querySelector('.add_role_username').value.trim();
+            const addRoleLname = document.querySelector('.add_role_lname').value.trim();
+            const addRoleFname = document.querySelector('.add_role_fname').value.trim();
+            const addRoleEmail = document.querySelector('.add_role_email').value.trim();
+            const addRoleSelect = document.querySelector('.select_role');
+            const selectedRole = addRoleSelect.options[addRoleSelect.selectedIndex].value.trim();
+
+             addRoleErrMsg.innerHTML = "<p class='text-info'> Submitting role...</p>";
+
+            // alert(selectedRole);
+         setTimeout(()=>{
+            if(addRoleUsername !== ""
+                || addRoleLname !== ""
+                || addRoleFname !== ""
+                || addRoleEmail !== ""
+                || selectedRole !== ""){
+                
+                
+                    
+                fetch('../includes/select__role.php',{
+                        method:'POST',
+                        body:myForm,
+                    })
+                    .then(res => {
+                        if(!res.ok){
+                            throw new Error(`Server responded with status: ${res.status}`);
+                        }
+                        else{
+                        
+                        // setTimeout(()=>{ window.location.href = "./welcome.php";}, 5000);
+                        }
+                    return res.text();
+                    })
+                    .then(data => {addRoleErrMsg.innerHTML = data;
+                        //  loginHandler.reset();
+                        })
+                    .catch(err => {
+                    addRoleErrMsg.innerHTML = "Err"+err;
+                    });
+                
+            }else{
+                addRoleErrMsg = document.innerHTML = "<p class='text-danger'> Fill out this Field! </p>";
+            }
+
+         }, 2000);
+            // alert("update loading");
+        });
+    }
+    
+}
+
+addRoleFormHandler();

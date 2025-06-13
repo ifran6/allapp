@@ -38,15 +38,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 if($result->num_rows > 0){
                     echo "<p class='text-danger'> Email already taken!</p>";
                 }else{
-                    //   $is_active = 0;
-                    // // $created_at = "NOW()";
-                    // // $updated_at = "NOW()";
-
-                    //  $sqli = "INSERT INTO user_tab(username, email, password_hash, first_name, last_name, is_active,created_at, updated_at) VALUES (?,?,?,?,?,?,?,?)";
-                    //   $types = "sssssiss";
-                    
-                    //  $field_set = "$username, $email, $password, $first_name, $last_name, $is_active, $created_at, $updated_at";
-                    // // insertUser($sqli, $type, $field_set)
                       
                     if(inserter($username, $email, $password, $first_name, $last_name, $is_active, $created_at = `NOW()`, $updated_at = `NOW()`)){echo "<p class='text-success'> User saved! !</p>";}
                     else{echo "<p class='text-danger'> User not saved! !</p>";}

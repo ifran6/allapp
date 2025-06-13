@@ -69,8 +69,9 @@ function isEmailTaken($email) {
 
 function inserter($username, $email, $password, $first_name, $last_name, $is_active, $created_at, $updated_at){
     global $conn;
-    $stmt = $conn->prepare("INSERT INTO user_tab(username, email, password_hash, first_name, last_name, is_active, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?)");
-    $stmt->bind_param("sssssiss", $username, $email, $password, $first_name, $last_name, $is_active, $created_at, $updated_at);
+    $role = 0;
+    $stmt = $conn->prepare("INSERT INTO user_tab(username, email, password_hash, first_name, last_name, is_active, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?,?)");
+    $stmt->bind_param("sssssiiss", $username, $email, $password, $first_name, $last_name, $is_active, $role, $created_at, $updated_at);
 
 //  $result = $conn->query($insert_query);
     if($stmt->execute()){
@@ -87,6 +88,6 @@ function inserter($username, $email, $password, $first_name, $last_name, $is_act
 function updates($sql, $updateId){
        global $conn;
          if($conn->query($sql)){
-              echo "<p class='text-success'> user with identity ".$updateId." Update succuessfully!! </p>";
+              echo "<p class='text-success'> User identity ".$updateId." Update Successfully!! </p>";
      }
 }

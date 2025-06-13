@@ -16,6 +16,7 @@ if($result){ $n =1 ;
          <th>Username</th>
           <th>LastName</th>
           <th>FirstName</th>
+           <th>Role</th>
           <th>Email-ID</th>
           <th>Action</th>
     </tr>
@@ -26,10 +27,17 @@ if($result){ $n =1 ;
             <td>".$row['username']." </td>
             <td>".$row['last_name']." </td>
             <td>".$row['last_name']."</td>
-            <td>".$row['email']."</td>
+            "?>
+            <td>
+            <?=($row['role']== 0)? 'Staff':(($row['role']== 1)? 'Admin':'Officer') ?>
+          </td>
+            <?php echo "<td>".$row['email']."</td>
             <td>" ?>
                 <div class='btn-group d-flex'>
                     <a href="./actions.php?update_id=<?=$row['user_id']?>" class='btn btn-sm btn-primary mx-2  p-2 button_edit-user' > Edit</a>
+
+                    <a href="./actions.php?add_role_id=<?=$row['user_id']?>" class='btn btn-sm btn-success mx-2  p-2 button_user-addrole' > Give Role</a>
+
                     <a href="./actions.php?delete_id=<?=$row['user_id']?>" class='btn btn-sm btn-danger p-2 button_edit-user' > Delete</a>
                  </div>
            <?php echo "</td>

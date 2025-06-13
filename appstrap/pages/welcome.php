@@ -40,16 +40,9 @@ if(!isset($_SESSION['user_email'])){
 
             <main>
                 <aside>
-                   <ul class='core-nav'>
-                    <li> <a href="welcome.php">Dashboard</a></li>
-                    <li> <a href="#">user</a>
-                        <ul>
-                            <li> <a href="add_user.php">Add User</a></li>
-                            <li> <a href="#">Product-2</a></li>
-                        </ul>
-                    </li>
-                    <li> <a href="#">Servies</a></li>
-                   </ul>
+                  <?php
+                        if(isset($_SESSION['user_email'])) include_once('../includes/adm_nav.php');
+                  ?>
                      
                 </aside>
                 <section>
