@@ -7,7 +7,7 @@ include_once('../includes/sub-header.php');
 ?>
 
 <div class="container">
-    <div class="form__box-container">
+    <div class="form__box-container shadow">
         <!-- <div class="col-md-5 col-sm-5 p-4 "> -->
                
                  <div class="image-box-container">
@@ -16,22 +16,22 @@ include_once('../includes/sub-header.php');
          
                 <div class="form-box" id="loginForm">
                 <form class="frm-login" method="post">
-                    <h3 class="text-center">Login Here</h3> 
+                    <h3 class="text-center display-6">Login Here</h3> 
                     <hr>
                     <p class="response text-center"></p>
                     <div class="form-group">
-                        <label for="username"><strong>Username</strong></label>
+                        <label for="username" class="form-label"><strong>Username</strong></label>
                         <input type="text" name="lgn-username" class="form-control-lg lgn-username" id="lgn-username" placeholder="Email">
                     </div>
 
                     <div class="form-group">
-                        <label for="password"><strong>Password</strong></label>
+                        <label for="password" class="form-label" class="form-label"><strong>Password</strong></label>
                         <input type="password" name="lgn-password" class="form-control-lg lgn-password" id="lgn-password" placeholder="Enter Password">
                     </div>
                       
                     <div class="action-box">
-                        <label for="remember"> <input type="checkbox" name="remember" id="remember"> Remember</label>
-                        <label><a href="#" class="forgotten-pass">Forgotten Password?</a></label>
+                        <label for="remember" class="form-label"> <input type="checkbox" name="remember" id="remember"> Remember</label>
+                        <label class="form-label"><a href="#" class="forgotten-pass">Forgotten Password?</a></label>
                     </div>
 
                     <div class="form-group">
@@ -47,11 +47,11 @@ include_once('../includes/sub-header.php');
             <!-- div -->
             <div class="form-box" id="forgotPwdForm">
                 <form action="" class="frm-forgot-pwd" id="frm-forgot-pwd">
-                    <h3 class="text-center">Forgotten Password</h3> 
+                    <h3 class="text-center display-5">Forgotten Password</h3> 
                     <hr>
                     <p class="response text-center"></p>
                     <div class="form-group">
-                        <label for="username"><strong>Username</strong></label>
+                        <label for="username" class="form-label"><strong>Username</strong></label>
                         <input type="text" class="form-control-lg fg-username" id="fg-username" placeholder="Username | Email">
                     </div>
 
@@ -69,12 +69,12 @@ include_once('../includes/sub-header.php');
                     <hr>
                     <p class="response text-center"></p>
                     <div class="form-group">
-                        <label for="password"><strong>Password</strong></label>
+                        <label for="password" class="form-label"><strong>Password</strong></label>
                         <input type="text" class="form-control-lg forgotten-password" id="forgotten-password" placeholder="Enter Password">
                     </div>
                     
                     <div class="form-group">
-                            <label for="confirm-forgotten-password"><strong>Confimr Password</strong></label>
+                            <label for="confirm-forgotten-password" class="form-label"><strong>Confimr Password</strong></label>
                             <input type="password" class="form-control-lg confirm-forgotten-password" id="confirm-forgotten-password" placeholder="Confirm Password">
                         </div>
                     <div class="form-group">
@@ -87,35 +87,45 @@ include_once('../includes/sub-header.php');
             <!-- Register -->
             <div class="form-box" id="registerForm">
                 <form class="frm-register col-9" method="post">
-                    <h3 class="text-center">Register Here</h3> 
+                    <h3 class="text-center display-6">Register Here</h3> 
                     <hr>
+                    <?php
+                      if(isset($_GET['error'])){?>
+                      <div class="alert alert-danger" role="alert"><?=stripcslashes($_GET['error']);?></div>
+                      <?php } ?>
+
+                      <?php
+                      if(isset($_GET['success'])){ ?>
+                      <div class="alert alert-success" role="alert"><?=stripcslashes($_GET['success']); ?></div>
+                      <?php } ?>
+
                     <p class="hintmsg text-center"></p>
                     <div class="form-group">
-                        <label for="username"><strong>Username</strong></label>
+                        <label for="username" class="form-label"><strong>Username</strong></label>
                         <input type="text" name="username" class="form-control-lg username" id="username" placeholder="Username">
                     </div>
 
                      <div class="form-group d-flex justify-content-between gap-2">
-                        <label for="lastname">
+                        <label for="lastname" class="form-label">
                             <b>LastName</b>
                             <input type="text" name="last_name" class="form-control form-control-lg last-name" placeholder="LastName" id="last-name">
                         </label>
-                         <label for="firstname">
+                         <label for="firstname" class="form-label">
                             <b>FirstName</b>
                             <input type="text" name="first_name" class="form-control form-control-lg first-name" placeholder="FirstName" id="first-name">
                         </label>
                     </div>
 
                     <div class="form-group">
-                        <label for="email"><strong>Email-ID</strong></label>
+                        <label for="email" class="form-label"><strong>Email-ID</strong></label>
                         <input type="text" name="email" class="form-control-lg email" id="email" placeholder="Email-ID">
                     </div>
 
                     <div class="form-group d-flex gap-2">
-                        <label for="password"><strong>Password</strong>
+                        <label for="password" class="form-label"><strong>Password</strong>
                         <input type="password" class="form-control-lg password" name="password" id="password" placeholder="Enter Password"></label>
 
-                         <label for="confirm-password"><strong>Confirm Password</strong>
+                         <label for="confirm-password" class="form-label"><strong>Confirm Password</strong>
                         <input type="password" class="form-control-lg confirm-password w-full" name="confirm_password" id="confirm-password" placeholder="Confrim Password"></label>
                     </div>
 

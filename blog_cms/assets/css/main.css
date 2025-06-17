@@ -1,0 +1,197 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-size:1.2rem;
+    /* background-color:red; */
+}
+
+.header{
+    display: flex;
+    justify-content:space-evenly;
+    align-items:center;
+    background-color:#0f0b0b98;
+}
+
+
+section{
+    width:auto;
+    height:90vh;
+}
+
+.header-left-box, .nav-title{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap:1rem;
+}
+
+.logo-img{
+    width:140px;
+    height:120px;
+    object-fit: cover;
+    /* border:1px outset red; */
+}
+
+.container-box{
+    background-color: #000;
+}
+
+.nav-box{
+    display:flex;
+    justify-items: center;
+    align-content: space-between;
+    gap:2rem;
+    background-color: black;
+}
+
+.super-nav{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+    display: flex;
+}
+
+.super-nav li {
+    position: relative;
+    display: flex;
+    padding:1rem;
+    width:150px;
+    height:50px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+}
+
+.super-nav li:hover {
+    background-color:lightslategrey;
+}
+
+.super-nav li a,a {
+    text-decoration: none;
+    color:#fff;
+    text-align: center;
+}
+
+.super-nav li .sub-nav{
+    position:absolute;
+    display: none;
+    top:100%;
+    left:0;
+    margin:0;
+    padding:0;
+    flex-direction: column;
+}
+
+.super-nav li:hover .sub-nav{
+    display: flex; 
+    flex-direction: column;
+    text-align: center;
+    background-color:#000;
+}
+
+.sub-nav li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+     /* background-color: #000; */
+}
+
+a:hover, .nav-linker:hover{
+    color:#fff;
+}
+
+
+/* forms */
+.image-box-container{
+    width:40%;
+    display: flex;
+    flex-direction: column;
+    padding:5%;
+    /* background-color: red; */
+
+}
+
+.site-img{
+    float:left;
+    width:100%  ;
+    height:auto;
+    object-fit: contain;
+    padding: .6rem;
+    /* border-radius:10px; */
+}
+
+.form__box-container{
+    width:100%;
+    display: flex;
+    justify-content:start;
+    align-items:start;
+    margin:8rem 0;
+    padding:2rem;
+    background: #fff;
+}
+
+.form-group{
+    margin-bottom:.9rem;
+}
+
+.form-box{
+    display: flex;
+    flex-direction: column;
+    padding:0 2rem;
+    justify-content:center;
+    align-items:center;
+    /* text-align:center; */
+    display: none;
+}
+
+ #loginForm {
+    display:block;
+   }
+
+input[type='text'],
+input[type='password'], 
+input[type='password'], 
+select, label, button{
+ width:100%;
+ background-color: lavender;
+}
+
+label{
+    background-color: transparent;
+}
+
+.action-box{
+    display: flex;
+    align-content:center;
+    justify-content:center;
+    gap:.5rem;
+    margin:1rem 0;
+    padding:0;
+
+}
+
+input[type="checkbox"]{
+    font-weight:400;
+    margin:0;
+    padding:0;
+    color:aquamarine;
+}
+
+.action-box div a, 
+.button-register, 
+.button-login, 
+label .forgotten-pass{
+    text-align: center;
+    font-size:1rem;
+    font-weight: 600;
+    color: cadetblue !important;
+}
+
+
+

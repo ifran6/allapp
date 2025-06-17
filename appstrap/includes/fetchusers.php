@@ -3,7 +3,7 @@ include_once('../includes/connect.php');
 include_once('../includes/fetchusers.php');
 
 
-$select_all_users = "select * from user_tab";
+$select_all_users = "SELECT * FROM user_tab ORDER BY user_id DESC";
 $result = mysqli_query($conn, $select_all_users);
 
 if($result){ $n =1 ;
@@ -34,11 +34,11 @@ if($result){ $n =1 ;
             <?php echo "<td>".$row['email']."</td>
             <td>" ?>
                 <div class='btn-group d-flex'>
-                    <a href="./actions.php?update_id=<?=$row['user_id']?>" class='btn btn-sm btn-primary mx-2  p-2 button_edit-user' > Edit</a>
+                    <a href="./actions.php?update_id=<?=$row['user_id']?>" class='btn btn-sm btn-primary mx-2  p-2 button_edit-user' title="<?="created on: ".$row['created_at']?>" > Open</a>
 
-                    <a href="./actions.php?add_role_id=<?=$row['user_id']?>" class='btn btn-sm btn-success mx-2  p-2 button_user-addrole' > Give Role</a>
+                    <a href="./actions.php?add_role_id=<?=$row['user_id']?>" class='btn btn-sm btn-dark mx-2  p-2 button_user-addrole' > Add Role</a>
 
-                    <a href="./actions.php?delete_id=<?=$row['user_id']?>" class='btn btn-sm btn-danger p-2 button_edit-user' > Delete</a>
+                    <a href="./actions.php?delete_id=<?=$row['user_id']?>" class='btn btn-sm btn-danger p-2 button_edit-user'name="" > Delete</a>
                  </div>
            <?php echo "</td>
             </tr>";

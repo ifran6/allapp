@@ -1,8 +1,33 @@
 
 function viewHandlers(){
-        const viewUsers = document.getElementById('viewUser');
+        const openUsers = document.getElementById('openUser');
+        const viewUsers = document.querySelector('.viewUser');
     if(viewUsers){
         viewUsers.addEventListener('click', ()=>{
+            const displayUsers = document.querySelector('.d-users');
+            fetch('../includes/fetchusers.php')
+            .then(response=>{ 
+                if(!response.ok){ 
+                  throw new Error(`Server responded with status: ${response.status}`);
+                   
+                }else{
+                    // setTimeout(()=>{ window.location.href = "welcome.php";}, 2000);
+                    // alert(0);
+                }
+                return response.text();
+            })
+            .then(data=>{
+                displayUsers.innerHTML = data;
+            })
+            .catch(err=>{
+                displayUsers.innerHTML = "Error:"+err;
+            });
+            displayUsers.innerHTML = ("viewUser");
+        });
+    }
+
+    if(openUsers){
+        openUsers.addEventListener('click', ()=>{
             const displayUsers = document.querySelector('.d-users');
             fetch('../includes/fetchusers.php')
             .then(response=>{ 
@@ -141,7 +166,7 @@ function updateFormHandler() {
                     });
 
             }else{
-                updErrMsg = document.innerHTML = "<p class='text-danger'> Fill out this Field! </p>";
+                updErrMsg.innerHTML = "<p class='text-danger'> Fill out this Field! </p>";
             }
             // alert("update loading");
         });
@@ -214,3 +239,60 @@ function addRoleFormHandler() {
 }
 
 addRoleFormHandler();
+
+
+const addProduct = document.querySelector('.frm-add-product');
+ const err_msg = document.querySelector('.err__msg');
+if(addProduct){
+    addProduct.addEventListener('submit', e => {
+        e.preventDefault();
+        // alert("add Product loading");
+        const myForm = new FormData(e.target);
+       
+
+        err_msg.innerHTML = "<p class='text-info' role='alert'> Adding Product loading....</p>";
+        const product_name = document.querySelector('.product_name').value.trim();
+        const product_description = document.querySelector('.product_desc').value.trim();
+        const product_qty = document.querySelector('.product_qty').value.trim();
+        const product_price = document.querySelector('.product_price').value.trim();
+        const product_category = document.querySelector('.product_category');
+        const productCategory = product_category.options[product_category.selectedIndex].value.trim();
+
+        setTimeout(() =>{
+             if(product_name !== ""
+                && product_description !== ""
+                && product_qty !== ""
+                && product_price !== ""
+                && product_category !== ""
+              && Number(product_qty) && Number(product_price)){
+                
+                fetch('../includes/add_product_inc.php',{
+                        method:'POST',
+                        body:myForm,
+                    })
+                    .then(res => {
+                        if(!res.ok){
+                            throw new Error(`Server responded with status: ${res.status}`);
+                        }
+                        else{
+                        
+                        // setTimeout(()=>{ window.location.href = "./welcome.php";}, 5000);
+                        }
+                    return res.text();
+                    })
+                    .then(data => {err_msg.innerHTML = data;
+                        //  loginHandler.reset();
+                        })
+                    .catch(err => {
+                    err_msg.innerHTML = "Err"+err;
+                    });
+                
+            }else{
+                err_msg.innerHTML = "<p class='text-danger'> Fill out this Field! </p>";
+            }
+
+        }, 2000);
+    });
+}
+
+

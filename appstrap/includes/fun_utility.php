@@ -1,8 +1,7 @@
 <?php
  
- function userCounter(){
+ function userCounter($sql){
     global $conn;
-        $sql = "SELECT COUNT(*) AS users FROM user_tab";
         $result = $conn->query($sql);
         if($result->num_rows > 0){
             $row = $result->fetch_assoc();
@@ -36,41 +35,30 @@ function isUsernameTaken($username) {
     return $taken;
 }
 
+function isEmailValid($email){
+    if(filter_var($email, FILTER_VALIDATE_EMAIL)){ 
+      if(filter_var($email, FILTER_SANITIZE_EMAIL)){
+        return $email;
+    }
+  }
+}
+
 function isEmailTaken($email) {
     global $conn;
-    $stmt = $conn->prepare("SELECT 1 FROM user_tab WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
-    $taken = $stmt->num_rows > 0;
-    $stmt->close();
-    return $taken;
+      $stmt = $conn->prepare("SELECT 1 FROM user_tab WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->store_result();
+        $taken = $stmt->num_rows > 0;
+        $stmt->close();
+        return $taken;
 }
 
 
-
-
-
-// function insertUser($sqli, $types, $field_set){
-//     global $conn;
-//     $stmt = $conn->prepare($sqli);
-//     $stmt->bind_param($field_set);
-
-// //  $result = $conn->query($insert_query);
-//     if($stmt->execute()){
-//         echo "<p class='text-success'> Congratulation! </p>";
-//         header("location:.../user_action.php");
-//         exit();
-//     }else{
-//         die(mysqli_error("<p class='text-danger'>".$stmt." </p>"));
-//     }
-                
-// }
-
 function inserter($username, $email, $password, $first_name, $last_name, $is_active, $created_at, $updated_at){
     global $conn;
-    $role = 0;
-    $stmt = $conn->prepare("INSERT INTO user_tab(username, email, password_hash, first_name, last_name, is_active, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?,?)");
+    $role = 2;
+    $stmt = $conn->prepare("INSERT INTO user_tab(username, email, password_hash, first_name, last_name, role, is_active, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?,?)");
     $stmt->bind_param("sssssiiss", $username, $email, $password, $first_name, $last_name, $is_active, $role, $created_at, $updated_at);
 
 //  $result = $conn->query($insert_query);
@@ -89,5 +77,12 @@ function updates($sql, $updateId){
        global $conn;
          if($conn->query($sql)){
               echo "<p class='text-success'> User identity ".$updateId." Update Successfully!! </p>";
+     }
+}
+
+function deletes($sql, $updateId){
+       global $conn;
+         if($conn->query($sql)){
+              echo "<p class='text-success'> User identity ".$updateId." Delete Successfully!! </p>";
      }
 }

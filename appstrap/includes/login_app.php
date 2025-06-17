@@ -34,12 +34,18 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                 $_SESSION['user_email'] = $user['email'];
                  $_SESSION['user_names'] = $user['last_name'] ." ". $user['first_name'] ;
                  
-                echo "<p class='text-success p-2'> Login Successfully!!</p>";
+                $em = "Login Successfully!!";
+                header("location:../pages/welcome.php");
+                exit();
              }else{
-                 echo "<p class='text-danger'> Couldn't Login</p>";
+                 $em = "<p class='text-danger'> Couldn't Login</p>";
+                  header("location:../pages/user_action.php?error=$em");
+                  exit();
              }
             }else{
-                echo  "<p class='text-danger p-2'> No User Found!</p>";;
+                $em = "<p class='text-danger p-2'> No User Found!</p>";
+                header("location:../pages/user_action.php?error=$em");
+                exit();
             }
        }
 

@@ -155,11 +155,18 @@ if(!isset($_SESSION['user_email'])){
                <?php 
                   $delete_user_byId_query = "DELETE  FROM user_tab WHERE user_id = '$deleteId' LIMIT 1";
                   $result = $conn->query($delete_user_byId_query);
-                 if($result){ echo "<p class='text-success p-4'>".$deleteId." has been delete successfully!</p>"; }
+                 if($result){ 
+                    echo ' <script>
+                        alert("delete successfully!");
+                        window.location.href = `welcome.php`;
+                    </script>';
+                    // header('location:welcome.php');
+                    // exit();
+                 }
                  else {
                     die(mysqli_error($result));
                 }
-                 ?> <a href="welcome.php" class=' btn btn-secondary mx-2 p-2 text-center'>Back</a>
+                 ?> 
              <?php } ?>
               
             </div>
