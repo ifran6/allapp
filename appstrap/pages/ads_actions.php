@@ -16,59 +16,70 @@ if(!isset($_SESSION['user_email'])){
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6 px-4">
-            <?php if(isset($_GET['update_id'])){
-                $updateId = $_GET['update_id'];
+            <?php if(isset($_GET['ads_edit_id'])){
+                $adsId = $_GET['ads_edit_id'];
 
-            $select_user_byId_query = "SELECT * FROM user_tab WHERE user_id = '$updateId' LIMIT 1";
+            $select_user_byId_query = "SELECT * FROM ads_tab WHERE id = '$adsId' LIMIT 1";
             $result = $conn->query($select_user_byId_query);
             if($result){
                 while($row = mysqli_fetch_assoc($result)){?>
                   <div class="form-box-container p-4 bg-light m-4">
-                      <form class="form py-4 px-4 update-form" method="POST">
-                    <h3 class="text-center">Update User</h3>
-                    <p class='update-Emsg text-center'></p>
-                    <input type="hidden" name="update_id" value="<?=$row['user_id']?>">
+                      <form class="form py-4 px-4 ads_update-form" method="POST">
+                    <h3 class="text-center display-7">Update ADs</h3>
+                    <p class='error_msg text-center'></p>
+                    <input type="hidden" name="ads_update_id" value="<?=$row['id']?>">
 
                     <div class="form-group">
-                        <label for="update_username">
-                            <b>Username</b>
-                            <input type="text" name='update_username' class="form-control form-control-lg update_username" value="<?=$row['username']?>" id="update_username">
+                        <label for="ads_title_update">
+                            <b>ADs Title</b>
+                            <input type="text" name='ads_title_update' class="form-control form-control-lg ads_title_update" value="<?=$row['ads_title']?>" id="ads_title_update">
                         </label>
                          
                        
                     </div>
 
 
-                     <div class="form-group d-flex gap-2">
-                         <label for="update-lname">
-                            <b>LastName</b>
-                            <input type="text" name="update_lname" class="form-control form-control-lg update_lname" value="<?=$row['last_name']?>" id="update-lname">
+                     <div class="form-group">
+                         <label for="ads_descr_update">
+                            <b>Descritpions</b>
+                            <input type="text" name="ads_descr_update" class="form-control form-control-lg ads_descr_update" value="<?=$row['ads_description']?>" id="ads_descr_update">
                         </label>
 
-                        <label for="update-fname">
-                            <b>FirstName</b>
-                            <input type="text" name="update_fname" class="form-control form-control-lg update_fname" value="<?=$row['first_name']?>" id="update-fname">
-                        </label>
+                        
                     </div>
 
-                     <div class="form-group">
-                        <label for="update_email">
-                            <b>Email-iD</b>
-                            <input type="text" name="update_email" class="form-control form-control-lg update_email" value="<?=$row['email']?>" id="update_email" disabled="true">
+                     <div class="form-group d-flex gap-2">
+                        <label for="ads_category_update">
+                            <b>Category</b>
+                            <select name="ads_category_update" class="form-control-lg ads_category_update" id="ads_category_update">
+                                <option value="">Select Category</option>
+                                <option value="0">Non-Technology</option>
+                                <option value="1">Technology</option>
+                            </select>
+                        </label>
+
+                        <label for="ads_statu_update">
+                            <b>Statu</b>
+                            <select name="ads_statu_update" class="form-control-lg ads_statu_update" id="ads_statu_update">
+                                <option value="">Change Statu</option>
+                                <option value="0">Pending</option>
+                                <option value="1">Approved</option>
+                            </select>
                         </label>
                     </div>
 
                     <div class="form-group">
-                        <label for="update_pass">
-                        <b>Password</b>
-                        <input type="text" name="update_pass" class="form-control form-control-lg update_pass" value="<?=$row['password_hash']?>" id="update_pass">
+                         <label for="ads_file" class="form-label">
+                        <b>Image</b>
+                        <input type="file" name="adsUpload" class="form-control form-control-lg ads_file" placeholder="Upload" id="ads_file">
                         </label>
                     </div>
 
                     <div class="btn-group d-flex gap-2">
-                        <button type="submit" name="updateButton" class="btn btn-lg btn-dark btn-lg update_button w-50" >Update</button>
-                        <a href="welcome.php" class=' btn btn-primary btn-lg mx-2 p-2 text-center w-50'>Back</a>
+                        <button type="submit" name="update_ads_Button" class="btn btn-lg btn-dark btn-lg update_ads_button w-50" >Update</button>
+                        <a href="welcome.php" class=' btn btn-primary btn-lg  text-center w-50'>Back</a>
                     </div>
+                    <div class='text-dark text-center mt-3 d-flex justify-content-center gap-2'><strong>Statu: </strong> <?=($row['is_active'] == 1)?"<i class='text-success text-center'>Aproved </p>":"<p class='text-danger text-center'> Pending </i>" ?></div>
                 </form>
                   </div>
                 <?php
@@ -123,18 +134,18 @@ if(!isset($_SESSION['user_email'])){
                         <b>Add Role</b>
                           <select class='form-control-lg select_role' name="select_role" id="select_role">
                             <option value="">Give Role</option>
-                            <option value="0">Staff</option>
-                            <option value="1">Admin</option>
+                             <option value="0">Admin</option>
+                            <option value="1">Staff</option>
                           </select>
                         </label>
                     </div>
 
-                    <div class="btn-group d-flex gap-2">
-                        <button type="submit" name="addRoleButton" class="btn btn-lg btn-dark btn-lg addRoleButton w-50" >Add Role</button>
-                        <a href="welcome.php" class=' btn btn-primary btn-lg mx-2 p-2 text-center w-50'>Back</a>
+                    <div class="btn-group">
+                        <button type="submit" name="addRoleButton" class="btn btn-lg btn-dark btn-lg addRoleButton" >Add Role</button>
+                        <a href="welcome.php" class=' btn btn-primary btn-lg mx-2 p-2 text-center'>Back</a>
                     </div>
                     <div class="form-group text-right p-3"> 
-                        <p class="text-center"><strong>Previous Role :</strong> <?=($row['roles']== 1)? 'Admin':(($row['roles']== 0)? 'Staff':'Officer') ?></p>
+                        <p class="text-center"><strong>Previous Role :</strong> <?=($row['role']== 0)? 'Staff':(($row['role']== 1)? 'Admin':'Officer') ?></p>
                     </div>
                 </form>
                   </div>
@@ -217,10 +228,10 @@ if(!isset($_SESSION['user_email'])){
                         </label>
                     </div>
 
-                    <div class="btn-group d-flex gap-2">
-                        <button type="submit" name="updateButton" class="btn btn-lg btn-dark btn-lg product_update_button w-50" >Update</button>
-                        <a href="welcome.php" class=' btn btn-primary btn-lg mx-2 p-2 text-center w-50'>Back</a>
-                    </div> <p class="text-center mb-3 mt-3"><span>Price Tag: $</span><?=(($row['price'])/100)?></p>
+                    <div class="btn-group mb-3">
+                        <button type="submit" name="updateButton" class="btn btn-lg btn-dark btn-lg product_update_button" >Update</button>
+                        <a href="welcome.php" class=' btn btn-primary btn-lg mx-2 p-2 text-center'>Back</a>
+                    </div> <p class="text-center mb-3"><span>Price Tag: $</span><?=(($row['price'])/100)?></p>
                 </form>
                   
                   </div>

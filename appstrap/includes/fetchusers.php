@@ -10,7 +10,8 @@ if($result){ $n =1 ;
   ?> 
    <div class='p-4 bg-light'>
     <h3 class="p-2 mt-2 text-dark text-center"> <strong>User Details</strong></h3>
-    <table class="table table-hover">
+    <div class="my-3"><a href="add_user.php" class="btn btn-secondary" >Add User</a></div>
+    <table class="table table-border">
       <tr class='bg-dark text-light p-4'>
         <th>#</th>
          <th>Username</th>
@@ -29,7 +30,7 @@ if($result){ $n =1 ;
             <td>".$row['last_name']."</td>
             "?>
             <td>
-            <?=($row['role']== 0)? 'Staff':(($row['role']== 1)? 'Admin':'Officer') ?>
+            <?=($row['roles']== 0)? 'Staff':(($row['roles']== 1)? 'Admin':'Officer') ?>
           </td>
             <?php echo "<td>".$row['email']."</td>
             <td>" ?>

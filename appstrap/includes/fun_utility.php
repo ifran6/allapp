@@ -26,7 +26,7 @@ function mailHandler($email,$name){
 
 function isUsernameTaken($username) {
     global $conn;
-    $stmt = $conn->prepare("SELECT 1 FROM user_tab WHERE username = ?");
+    $stmt = $conn->prepare("SELECT * FROM user_tab WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $stmt->store_result();
@@ -58,7 +58,7 @@ function isEmailTaken($email) {
 function inserter($username, $email, $password, $first_name, $last_name, $is_active, $created_at, $updated_at){
     global $conn;
     $role = 2;
-    $stmt = $conn->prepare("INSERT INTO user_tab(username, email, password_hash, first_name, last_name, role, is_active, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?,?)");
+    $stmt = $conn->prepare("INSERT INTO user_tab(username, email, password_hash, first_name, last_name, roles, is_active, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?,?)");
     $stmt->bind_param("sssssiiss", $username, $email, $password, $first_name, $last_name, $is_active, $role, $created_at, $updated_at);
 
 //  $result = $conn->query($insert_query);
@@ -79,6 +79,17 @@ function updates($sql, $updateId){
               echo "<p class='text-success'> User identity ".$updateId." Update Successfully!! </p>";
      }
 }
+
+function update_user($data){
+    global $conn;
+    
+    $sql = "UPDATE user_tab SET username = ?, first_name = ?, last_name = ?, roles = ?, updated_at = ? WHERE user_id = ? LIMIT 1";
+    $stmt =$conn->prepare($sql);
+    $result = $stmt->execute($data);
+    return $result;
+}
+
+
 
 function deletes($sql, $updateId){
        global $conn;
