@@ -3,7 +3,7 @@ include_once('../includes/connect.php');
 
 function select_post(){
     global $conn;
-    $sql = "SELECT * FROM product ";
+    $sql = "SELECT * FROM posts ";
 
     $stmt = $conn->prepare($sql);
     $stmt->execute();
@@ -15,6 +15,7 @@ function select_post(){
 
     return $users;
 }
+
 
 function postCounter($sql){
     global $conn;
@@ -28,71 +29,67 @@ function postCounter($sql){
 
 function get_PostBy_Id($id){
     global $conn;
-    $sql = "SELECT * FROM product WHERE id = ? ";
+    $sql = "SELECT * FROM posts WHERE id = ? ";
 
     $stmt = $conn->prepare($sql);
     $stmt->execute([$id]);
     if($stmt->rowCount() > 0){
-        $users = $stmt->fetch();
+        $posts = $stmt->fetch();
     }else {
-        $users = 0;
+        $posts = 0;
     }
 
-    return $users;
+    return $posts;
 
 }
 
 
-
 function is_post_exist($data){
     global $conn;
-    $sql = "SELECT * FROM product WHERE product_name = ? LIMIT 1";
+    $sql = "SELECT * FROM posts WHERE title = ? LIMIT 1";
 
     $stmt = $conn->prepare($sql);
     $stmt->execute([$data]);
-    $prodo = $stmt->fetch();
-    return $prodo;
+    $result = $stmt->fetch();
+    return $result;
 }
 
 
 function insert_post($data){
     global $conn;
-    	// id	product_name	category	product_description	qty	price	is_active	
-    $sql = "INSERT INTO product(product_name, category, product_description, qty, price,created_at, updated_at, is_active)VALUES(?,?,?,?,?,?,?,?)";
+    // id	title	slug	category	content	author	post_image	statu	created_at	updated_at			
+    $sql = "INSERT INTO posts(title, slug, category, content, author, post_image,statu,created_at, updated_at)VALUES(?,?,?,?,?,?,?,?,?)";
     $stmt = $conn->prepare($sql);
     $inserter = $stmt->execute($data);
     return $inserter;
 
 }
 
+
 function update_post($data){
     global $conn;
-    $sql = "UPDATE product SET product_name = ?, product_description = ?, category = ?, qty = ?, price = ?, updated_at = ? WHERE id = ? LIMIT 1";
+    $sql = "UPDATE posts SET title = ?, category = ?, content = ?, author = ?, post_image = ?, statu = ?, updated_at = ? WHERE id = ? LIMIT 1";
 
     $stmt = $conn->prepare($sql);
     $updated = $stmt->execute($data);
     return $updated;
 }
 
-function delete_post($id){
-    global $conn;
-    $sql = "DELETE FROM product WHERE id = ? LIMIT 1";
 
-    $stmt = mysqli_prepare($conn, $sql);
-    if($stmt){
-        mysqli_stmt_bind_param($stmt, "i", $id);
-        $success = mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
-        return $success;
-    }
+function delete_posts($id){
+    global $conn;
+    $sql = "DELETE FROM posts WHERE id = ? LIMIT 1";
+    $stmt = $conn->prepare($sql);
+    $result = $stmt->execute([$id]);
+    return $result;
 }
 
-
-// function delete_product($id){
-//     global $conn;
-//     $sql = "DELETE FROM product WHERE id = ? LIMIT 1";
-
-//     $stmt = $conn->prepare($sql);
-//     $updated = $stmt->execute([$id]);
-//     return $updated;
-// }
+function delete_post($id){
+    global $conn;
+    $sql = "DELETE FROM posts WHERE id = ? LIMIT 1";
+    
+    $stmt = $conn->prepare($sql);
+    $success = $stmt->execute([$id]);
+    return $success;
+    
+}

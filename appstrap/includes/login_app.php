@@ -32,6 +32,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
              if($password == $user['password_hash']){
                 session_start();
                 $_SESSION['user_email'] = $user['email'];
+                $_SESSION['user_id'] = $user['user_id'];
                  $_SESSION['user_names'] = $user['last_name'] ." ". $user['first_name'] ;
                  
                 $em = "Login Successfully!!";

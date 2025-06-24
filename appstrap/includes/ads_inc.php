@@ -1,7 +1,7 @@
 <?php 
 include_once('../includes/connect.php');
 include_once('../model/ads.php');
-if($_SERVER['REQUEST_METHOD']){
+if($_SERVER['REQUEST_METHOD'] === "POST"){
    
 
     $ads__name = trim($_POST['ads_name']);

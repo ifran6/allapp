@@ -26,8 +26,11 @@ if($result){ $n =1 ;
      echo "<tr>
            <td>".$n++."</td>"."
             <td>".$row['ads_title']." </td>
-            <td>".$row['ads_description']." </td>
-             <td>".$row['ads_category']." </td>
+            <td class='more_info'>".$row['ads_description']."</td>
+             <td>"?>
+             <?=($row['ads_category']) == 0 ? 'Non-tech':'Tech'?>
+             
+             <?php echo" </td>
             <td>" ?>
                 <div class='btn-group d-flex'>
                     <a href="./ads_actions.php?ads_edit_id=<?=$row['id']?>" class='btn btn-sm btn-primary mx-2  p-2 button_edit-ads w-50' title="<?="created on: ".$row['created_at']?>" > Open</a>

@@ -42,7 +42,7 @@ if(!isset($_SESSION['user_email'])){
                      <div class="form-group">
                          <label for="ads_descr_update">
                             <b>Descritpions</b>
-                            <input type="text" name="ads_descr_update" class="form-control form-control-lg ads_descr_update" value="<?=$row['ads_description']?>" id="ads_descr_update">
+                            <textarea name="ads_descr_update" class="form-control form-control-lg ads_descr_update" rows="4" cols="15" value="<?=$row['ads_description']?>" id="ads_descr_update" placeholder="Descriptions"><?=$row['ads_description']?></textarea>
                         </label>
 
                         
@@ -52,9 +52,9 @@ if(!isset($_SESSION['user_email'])){
                         <label for="ads_category_update">
                             <b>Category</b>
                             <select name="ads_category_update" class="form-control-lg ads_category_update" id="ads_category_update">
-                                <option value="">Select Category</option>
-                                <option value="0">Non-Technology</option>
-                                <option value="1">Technology</option>
+                                <option value="" >Select Category</option>
+                                <option value="0" <?=($row['ads_category'] == 0)?'selected':''?>>Non-Technology</option>
+                                <option value="1" <?=($row['ads_category'] == 1)?'selected':''?>>Technology</option>
                             </select>
                         </label>
 
@@ -62,8 +62,8 @@ if(!isset($_SESSION['user_email'])){
                             <b>Statu</b>
                             <select name="ads_statu_update" class="form-control-lg ads_statu_update" id="ads_statu_update">
                                 <option value="">Change Statu</option>
-                                <option value="0">Pending</option>
-                                <option value="1">Approved</option>
+                                <option value="0" <?=$row['is_active'] == 0 ? 'selected' : ''?>>Pending</option>
+                                <option value="1" <?=$row['is_active'] == 1 ? 'selected' : ''?>>Approved</option>
                             </select>
                         </label>
                     </div>

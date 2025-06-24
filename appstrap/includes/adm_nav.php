@@ -7,6 +7,6 @@
        <div><a href="#" id="openUser" >Manage User</a></div>
         <div><a href="#" id="viewProduct">Product</a></div>
         <div><a href="#" id="viewADs">ADS</a></div>
-        <div><a href="#">Add Post</a></div>
+        <div><a href="#" id="viewPost">Add Post</a></div>
        <div><a href="logout.php">Logout</a></div>
 </div>

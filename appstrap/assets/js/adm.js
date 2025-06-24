@@ -15,14 +15,12 @@ if(addProductByBatch){
     }
 
 
-
-function viewHandlers(){
-        const viewUsers = document.querySelector('.viewUser'); 
-        const displayUsers = document.querySelector('.d-users');
+const viewUsers = document.querySelector('.viewUser'); 
+      
     if(viewUsers){
         viewUsers.addEventListener('click', ()=>{
-           
-            displayUsers.innerHTML = "<P class='text-info text-center'> Loading users.....</p>";
+             const displayUsers = document.querySelector('.d-users');
+            displayUsers.innerHTML = "<P class='text-info text-center p-2'> Loading users.....</p>";
 
             setTimeout(()=> {
                 fetch('../includes/fetchusers.php')
@@ -40,21 +38,21 @@ function viewHandlers(){
                         displayUsers.innerHTML = "Error:"+err;
                     });
                     displayUsers.innerHTML = ("viewUser");
-                });
-            }, 3000);
+             
+            }, 3000);  
+         });
     }
 
-  
-}
+//  ==============================gettingById==================================
+// ===============================================================================
 
-    function viewUserByIdHandler(){
          const openUsers = document.getElementById('openUser');
-        // const viewUsers = document.querySelector('.viewUser'); 
-    const displayUsers = document.querySelector('.d-users');
+       
     if(openUsers){
-            openUsers.addEventListener('click', ()=>{
-                // const displayUsers = document.querySelector('.d-users');
-                displayUsers.innerHTML = "<P class='text-info text-center'> Loading users.....</p>";
+            openUsers.addEventListener('click', ()=>{  
+                const userFeedback = document.querySelector('.d-users');  
+                userFeedback.innerHTML = "<P class='text-info text-center p-2'> Loading users.....</p>";
+              
                 setTimeout(() => {
                     fetch('../includes/fetchusers.php')
                 .then(response=>{ 
@@ -65,29 +63,16 @@ function viewHandlers(){
                     return response.text();
                 })
                 .then(data=>{
-                    displayUsers.innerHTML = data;
+                    userFeedback.innerHTML = data;
                 })
                 .catch(err=>{
-                    displayUsers.innerHTML = "Error:"+err;
+                    userFeedback.innerHTML = "Error:"+err;
                 });
-                // displayUsers.innerHTML = ("viewUser");
+          
+                }, 2000);
             });
-                }, 3000);
         }
-    }
-
-    viewUserByIdHandler();
-
-
-// function editHandler(){
-// document.querySelectorAll(".button_edit-user").forEach(btnId=>btnId.addEventListener("click", ()=>{
-//  console.log('more info: btnId.dataset.userId');
-//     // alert(0);
-// })
-// );
-  // }
-// }
-
+  
 
 function addNewUser() {
     const addUser = document.querySelector('.frm-add-user');
@@ -205,7 +190,7 @@ updateFormHandler();
 // addNewUser();
 
 
-viewHandlers();
+// viewHandlers();
 
 function addRoleFormHandler() {
     const addRoleForm = document.querySelector(".add_role_form");
@@ -572,7 +557,7 @@ const viewAdvert = document.getElementById("viewADs");
 if(viewAdvert){
     const dp = document.querySelector('.d-users');
     viewAdvert.addEventListener('click', () =>{
-      dp.innerHTML = "<p class='text-info text-center'> Loading Ads</p>";
+      dp.innerHTML = "<p class='text-info text-center p-4'> Loading Ads</p>";
 
       setTimeout(() => {
         fetch('../includes/fetch_ads.php')
@@ -612,7 +597,7 @@ if(adsUpdateForm){
         const adsStatu = document.querySelector('.ads_category_update');
         const selectedStatuUpdate = adsStatu.options[adsStatu.selectedIndex].value.trim();
 
-        feedback.innerHTML = "<p class='text-info text-center'> Updating ADs, please wait..... </p>";
+        feedback.innerHTML = "<p class='text-info text-center p-4'> Updating ADs, please wait..... </p>";
 
         if(confirm("Are you sure?")){
             if(adsTitle !=="" && adsDescr !=="" && selectedCategoryUpdate !=="" && selectedStatuUpdate !==""){
@@ -674,3 +659,157 @@ if(adsUpdateForm){
         }, 2000);
      }}
     });
+
+    const viewPost = document.getElementById('viewPost');
+    const feedback = document.querySelector('.d-users'); 
+  
+    if(viewPost){
+       viewPost.addEventListener('click', ()=>{
+            feedback.innerHTML = "<p class='text-info text-center p-4'> Loading Post</p>";
+
+             setTimeout(()=>{
+                fetch('../includes/fetchpost.php')
+                    .then(res => {
+                        if(!res.ok){
+                            throw new Error(`Server responded with status: ${res.status}`);
+                        }
+                        
+                    return res.text();
+                    })
+                    .then(data => { 
+                        feedback.innerHTML = data;
+                        //  loginHandler.reset();
+                        })
+                    .catch(err => {
+                    feedback.innerHTML = "Err"+err;
+                    });
+            }, 1500);
+       });
+      
+    }
+
+
+    // =====================post_update-form======================
+    // ===========================================================
+
+    const postUpdateForm = document.querySelector('.post_update-form');
+    if(postUpdateForm){
+        postUpdateForm.addEventListener('submit', (el)=>{
+            el.preventDefault();
+            const postForm = new FormData(el.target);
+            const feedback = document.querySelector('.error_msg');
+            feedback.innerHTML = "<p class='text-center text-info'> updating post, please wait...</p>";
+
+        const postTitle = document.querySelector('.post_title_update').value.trim();
+        const post = document.querySelector('.post_content_update').value.trim();
+        const postCategory = document.querySelector('.post_category_update');
+        const selectedCategoryUpdate = postCategory.options[postCategory.selectedIndex].value.trim();
+        const postStatu = document.querySelector('.post_statu_update');
+        const selectedStatuUpdate = postStatu.options[postStatu.selectedIndex].value.trim();
+
+        if(postTitle !== "" && post !== "" && selectedCategoryUpdate !== "" && selectedStatuUpdate !== ""){
+              setTimeout(()=>{
+                fetch('../includes/post_inc.php',{
+                    method:'POST',
+                    body:postForm,
+                })
+                    .then(res => {
+                        if(!res.ok){
+                            throw new Error(`Server responded with status: ${res.status}`);
+                        }
+                        
+                    return res.text();
+                    })
+                    .then(data => { feedback.innerHTML = data;
+                        //  loginHandler.reset();
+                        })
+                    .catch(err => {
+                    feedback.innerHTML = "Err"+err;
+                    });
+            }, 1500);
+        }else{
+             feedback.innerHTML = "<p class='text-center text-danger'> Couldn't submit empty field! </p>";
+        }
+           
+        });
+       
+    }
+    
+    // =====================post_create-form======================
+    // ===========================================================
+
+    const createPosForm = document.querySelector('.frm-create-post');
+    if(createPosForm){
+        createPosForm.addEventListener('submit', (el)=>{
+            el.preventDefault();
+            const postForm = new FormData(el.target);
+            const feedback = document.querySelector('.post_err__msg');
+            feedback.innerHTML = "<p class='text-center text-info'> Creating Post, please wait...</p>";
+
+        const postTitle = document.querySelector('.post_title').value.trim();
+        const post = document.querySelector('.post_content').value.trim();
+        const postCategory = document.querySelector('.post_category');
+        const selectedCategoryUpdate = postCategory.options[postCategory.selectedIndex].value.trim();
+
+        if(postTitle !== "" && post !== "" && selectedCategoryUpdate !== ""){
+              setTimeout(()=>{
+                fetch('../includes/create_post_inc.php',{
+                    method:'POST',
+                    body:postForm,
+                })
+                    .then(res => {
+                        if(!res.ok){
+                            throw new Error(`Server responded with status: ${res.status}`);
+                        }
+                        
+                    return res.text();
+                    })
+                    .then(data => { feedback.innerHTML = data;
+                        //  loginHandler.reset();
+                        })
+                    .catch(err => {
+                    feedback.innerHTML = "Err"+err;
+                    });
+            }, 1500);
+        }else{
+             feedback.innerHTML = "<p class='text-center text-danger'> Couldn't submit empty field! </p>";
+        }
+           
+        });
+       
+    }
+
+
+     document.addEventListener("click", function (e) {
+    if (e.target && e.target.classList.contains("btn_delete-post")) {
+        const dataId = e.target.getAttribute('data-id');
+        const errBox = document.querySelector('.errBox');
+
+        if (confirm("Are you sure you want to delete this product?")) {
+            errBox.innerHTML = "<p class='text-info'>Deleting product...</p>";
+
+            const formData = new FormData();
+            formData.append('id', dataId);
+
+            fetch('../includes/delete_post.php', {
+                method: 'POST',
+                body: formData,
+            })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error(`Server responded with status: ${res.status}`);
+                    }
+                    return res.text();
+                })
+                .then(data => {
+                    errBox.innerHTML = data;
+                    // setTimeout(() => {
+                    //     location.reload();
+                    // }, 1500);
+                })
+                .catch(err => {
+                    errBox.innerHTML = "<p class='text-danger'>Error: " + err.message + "</p>";
+                });
+        }
+    }
+});
