@@ -37,9 +37,9 @@ if(!isset($_SESSION['user_email'])){
       <div class="d-users">
           <div class="row my-3">
           <div class="col md-4">
-            <div class="card-box text-center">
+            <div class="card-box text-center my-4">
                 <!-- <img src="../assets/images/me.jpg" alt=""> -->
-                 <i class='fa fa-users'></i>
+                 <i class='fa fa-users display-3'></i>
                 <p class="display-7">
                    <a href="#" class="viewUser text-dark"> 
                       (<?=userCounter($sql)?>) | All Users  (<?=userCounter($pending_sql)?>)
@@ -52,9 +52,9 @@ if(!isset($_SESSION['user_email'])){
       </div>
 
       <div class="col md-4">
-            <div class="card-box text-center">
+            <div class="card-box text-center my-4">
                 <!-- <img src="../assets/images/me.jpg" alt=""> -->
-                 <i class='fa fa-user-tie'></i>
+                 <i class='fa fa-user-tie display-3'></i>
                 <p class="display-7">
                    <a href="#" class="viewUser text-dark"> 
                        <?php  $sql = "SELECT COUNT(*) AS users FROM user_tab WHERE roles = 1";?>
@@ -66,9 +66,9 @@ if(!isset($_SESSION['user_email'])){
       </div>
 
        <div class="col md-4">
-            <div class="card-box text-center">
+            <div class="card-box text-center my-4">
                 <!-- <img src="../assets/images/me.jpg" alt=""> -->
-                 <i class='fa fa-user'></i>
+                 <i class='fa fa-user display-3'></i>
                 <p class="display-7">
                    <?php  $sql = "SELECT COUNT(*) AS users FROM user_tab WHERE roles = 0";?>
                    <a href="#" class="viewUser text-dark"> 
@@ -89,7 +89,7 @@ if(!isset($_SESSION['user_email'])){
 
             <div class="card-box text-center">
                 <!-- <img src="../assets/images/me.jpg" alt=""> -->
-                 <i class='fa fa-comment'></i>
+                 <i class='fa fa-briefcase display-3'></i>
                 <p class="display-7">
                    <a href="#" class="viewUser text-dark"> 
                       (<?=productCounter($sql)?>) | Total Product  
@@ -102,7 +102,7 @@ if(!isset($_SESSION['user_email'])){
       <div class="col md-4">
             <div class="card-box text-center">
                 <!-- <img src="../assets/images/me.jpg" alt=""> -->
-                 <i class='fa fa-comment'></i>
+                 <i class='fa fa-briefcase display-4'></i>
                 <p class="display-7">
                    <a href="#" class="viewUser text-dark"> 
                        <?php  $sql =  "SELECT COUNT(*) AS item FROM product WHERE is_active = 1 ";?>
@@ -116,7 +116,7 @@ if(!isset($_SESSION['user_email'])){
        <div class="col md-4">
             <div class="card-box text-center">
                 <!-- <img src="../assets/images/me.jpg" alt=""> -->
-                 <i class='fa fa-comment'></i>
+                 <i class='fa fa-briefcase display-4'></i>
                 <p class="display-7">
                    <?php  $sql = "SELECT COUNT(*) AS item FROM product WHERE is_active = 0 ";?>
                    <a href="#" class="viewUser text-dark"> 
@@ -126,8 +126,108 @@ if(!isset($_SESSION['user_email'])){
                 </p>
             </div>
       </div>
+      </div>
+
+      <!-- ADs -->
+        <div class="row my-3">
+          <div class="col md-4">
+             <?php 
+                  $sql = "SELECT COUNT(*) AS item FROM ads_tab";
+                ?> 
+
+            <div class="card-box text-center">
+                <!-- <img src="../assets/images/me.jpg" alt=""> -->
+                 <i class='fa fa-bullhorn display-3'></i>
+                <p class="display-7">
+                   <a href="#" class="viewUser text-dark"> 
+                      (<?=productCounter($sql)?>) | Total Product  
+                     </p>
+                    </a>
+                </p>
+         </div>
+      </div>
+
+      <div class="col md-4">
+            <div class="card-box text-center">
+                <!-- <img src="../assets/images/me.jpg" alt=""> -->
+                 <i class='fa fa-bullhorn display-4'></i>
+                <p class="display-7">
+                   <a href="#" class="text-dark"> 
+                       <?php  $sql =  "SELECT COUNT(*) AS item FROM ads_tab WHERE is_active = 1 ";?>
+                       <?=productCounter($sql)?> | Approved ADs
+                      </p>
+                    </a>
+                </p>
+            </div>
+      </div>
+
+       <div class="col md-4">
+            <div class="card-box text-center">
+                <!-- <img src="../assets/images/me.jpg" alt=""> -->
+                 <i class='fa fa-bullhorn display-4'></i>
+                <p class="display-7">
+                   <?php  $sql = "SELECT COUNT(*) AS item FROM ads_tab WHERE is_active = 0 ";?>
+                   <a href="#" class="viewUser text-dark"> 
+                        (<?=productCounter($sql)?>) | Pending ADs
+                      </p>
+                    </a>
+                </p>
+            </div>
+      </div>
 
       </div>
+
+      <!-- ADs -->
+
+      <!-- post -->
+         <div class="row my-3">
+          <div class="col md-4">
+             <?php 
+                  $sql = "SELECT COUNT(*) AS item FROM posts";
+                ?> 
+
+            <div class="card-box text-center">
+                <!-- <img src="../assets/images/me.jpg" alt=""> -->
+                 <i class='fa fa-comments display-3'></i>
+                <p class="display-7">
+                   <a href="#" class="text-dark"> 
+                      (<?=productCounter($sql)?>) | Total Post  
+                     </p>
+                    </a>
+                </p>
+         </div>
+      </div>
+
+      <div class="col md-4">
+            <div class="card-box text-center">
+                <!-- <img src="../assets/images/me.jpg" alt=""> -->
+                 <i class='fa fa-comments display-4'></i>
+                <p class="display-7">
+                   <a href="#" class="viewUser text-dark"> 
+                       <?php  $sql =  "SELECT COUNT(*) AS item FROM posts WHERE statu = 1 ";?>
+                       <?=productCounter($sql)?> | Approved Post
+                      </p>
+                    </a>
+                </p>
+            </div>
+      </div>
+
+       <div class="col md-4">
+            <div class="card-box text-center">
+                <!-- <img src="../assets/images/me.jpg" alt=""> -->
+                 <i class='fa fa-comments display-4'></i>
+                <p class="display-7">
+                   <?php  $sql = "SELECT COUNT(*) AS item FROM posts WHERE statu = 0 ";?>
+                   <a href="#" class=" text-dark"> 
+                        (<?=productCounter($sql)?>) | Pending Post
+                      </p>
+                    </a>
+                </p>
+            </div>
+      </div>
+
+      </div>
+       <!-- post -->
 
     </div>
   </div>
