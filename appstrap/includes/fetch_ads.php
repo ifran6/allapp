@@ -11,7 +11,7 @@ if($result){ $n =1 ;
    <div class='p-4 bg-light'>
     <h3 class="p-2 mt-2 text-dark text-center"> <strong>ADS List</strong></h3>
     <p class="errBox"></p>
-    <div class="my-3"><a href="add_ads.php" class="btn btn-secondary" >Add ADs</a></div>
+    <div class="my-3"><a href="add_ads.php" class="btn btn-secondary"> <i class="fa fa-add"></i> Add ADs</a></div>
     <table class="table table-bordered">
       <tr class='bg-dark text-light p-4'>
         <th>#</th>
@@ -33,11 +33,11 @@ if($result){ $n =1 ;
              <?php echo" </td>
             <td>" ?>
                 <div class='btn-group d-flex'>
-                    <a href="./ads_actions.php?ads_edit_id=<?=$row['id']?>" class='btn btn-sm btn-primary mx-2  p-2 button_edit-ads w-50' title="<?="created on: ".$row['created_at']?>" > Open</a>
+                    <a href="./ads_actions.php?ads_edit_id=<?=$row['id']?>" class='btn btn-sm btn-primary mx-2  p-2 button_edit-ads w-50' title="<?="created on: ".$row['created_at']?>"> <i class="fa fa-folder-open"></i> Open</a>
 
-                    <a href="./add_ads.php" class='btn btn-sm btn-dark mx-2  p-2 button_add_ads w-50' > Create ADst</a>
+                    <a href="./add_ads.php" class='btn btn-sm btn-dark mx-2  p-2 button_add_ads w-50' ><i class="fa fa-add"></i> Create ADst</a>
 
-                    <button class="btn btn-sm btn-danger btn_delete_ads w-50" name="delete" id="btn_delete_ads" data-id="<?=$row['id']?>"> Delete</button>
+                    <button class="btn btn-sm btn-danger btn_delete_ads w-50" name="delete" id="btn_delete_ads" data-id="<?=$row['id']?>"><i class="fa fa-trash"></i> Delete</button>
                  </div>
            <?php echo "</td>
             </tr>";

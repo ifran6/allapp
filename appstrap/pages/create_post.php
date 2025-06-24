@@ -54,8 +54,8 @@ if(!isset($_SESSION['user_email'])){
                     </div>
 
                     <div class="btn-group d-flex">
-                       <button type="submit" name="ads_upload" class="btn btn-md btn-dark w-50">Create Post</button>
-                        <a href="welcome.php" class=' btn btn-md btn-primary mx-2 p-2 text-center w-50'>Back</a>
+                       <button type="submit" name="ads_upload" class="btn btn-md btn-dark w-50"><i class='fa fa-add'></i> Create Post</button>
+                        <a href="welcome.php" class=' btn btn-md btn-primary mx-2 p-2 text-center w-50'> <i class='fa fa-arrow-right'></i> Back</a>
                     </div>
                 </form>
             </div>

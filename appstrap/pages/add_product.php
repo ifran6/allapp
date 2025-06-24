@@ -61,9 +61,9 @@ if(!isset($_SESSION['user_email'])){
                     </div>
 
                     <div class="btn-group d-flex">
-                       <button type="submit" name="button_single_product" class="btn btn-md btn-dark w-50">Add Product</button>
-                        <a href="#" class=' btn btn-md btn-secondary mx-2 p-2 text-center w-50 batch_product'>Batch Upload</a>
-                        <a href="welcome.php" class=' btn btn-md btn-primary mx-2 p-2 text-center w-50'>Back</a>
+                       <button type="submit" name="button_single_product" class="btn btn-md btn-dark w-50"> <i class='fa fa-add'></i> Add Product</button>
+                        <a href="#" class=' btn btn-md btn-secondary mx-2 p-2 text-center w-50 batch_product'><i class='fa fa-add'></i> Batch Upload</a>
+                        <a href="welcome.php" class=' btn btn-md btn-primary mx-2 p-2 text-center w-50'><i class='fa fa-arrow-right'></i> Back</a>
                     </div>
                 </form>
             </div>

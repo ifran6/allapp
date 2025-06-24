@@ -19,7 +19,7 @@ if(!isset($_SESSION['user_email'])){
            
                   <div class="form-box-container p-4 bg-light m-4" id="add__ads" enctype="multipart/form-data">
                       <form class="form py-4 px-4 frm-create-ads" method="POST" >
-                    <h3 class="text-center display-7">Create ADs</h3>
+                    <h3 class="text-center display-7">Create ADs </h3>
                      <div class="ads_err__msg text-center "></div>
                     <div class="form-group d-flex gap-2">
                         <label for="ads_name" class="form-label">
@@ -54,9 +54,9 @@ if(!isset($_SESSION['user_email'])){
                     </div>
 
                     <div class="btn-group d-flex">
-                       <button type="submit" name="ads_upload" class="btn btn-md btn-dark w-50">Create ADs</button>
+                       <button type="submit" name="ads_upload" class="btn btn-md btn-dark w-50"><i class='fa fa-add'></i> Create ADs</button>
                         <!-- <a href="#" class=' btn btn-md btn-secondary mx-2 p-2 text-center w-50 ads_upload'>Batch Upload</a> -->
-                        <a href="welcome.php" class=' btn btn-md btn-primary mx-2 p-2 text-center w-50'>Back</a>
+                        <a href="welcome.php" class=' btn btn-md btn-primary mx-2 p-2 text-center w-50'><i class='fa fa-arrow-right'></i> Back</a>
                     </div>
                 </form>
             </div>

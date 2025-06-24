@@ -10,7 +10,7 @@ if($result){ $n =1 ;
   ?> 
    <div class='p-4 bg-light'>
     <h3 class="p-2 mt-2 text-dark text-center"> <strong>User Details</strong></h3>
-    <div class="my-3"><a href="add_user.php" class="btn btn-secondary" >Add User</a></div>
+    <div class="my-3"><a href="add_user.php" class="btn btn-secondary" ><i class="fa fa-add"></i> Add User</a></div>
     <table class="table table-border">
       <tr class='bg-dark text-light p-4'>
         <th>#</th>
@@ -35,11 +35,11 @@ if($result){ $n =1 ;
             <?php echo "<td>".$row['email']."</td>
             <td>" ?>
                 <div class='btn-group d-flex'>
-                    <a href="./actions.php?update_id=<?=$row['user_id']?>" class='btn btn-sm btn-primary mx-2  p-2 button_edit-user' title="<?="created on: ".$row['created_at']?>" > Open</a>
+                    <a href="./actions.php?update_id=<?=$row['user_id']?>" class='btn btn-sm btn-primary mx-2  p-2 button_edit-user' title="<?="created on: ".$row['created_at']?>" ><i class="fas fa-folder-open"></i>  Open</a>
 
-                    <a href="./actions.php?add_role_id=<?=$row['user_id']?>" class='btn btn-sm btn-dark mx-2  p-2 button_user-addrole' > Add Role</a>
+                    <a href="./actions.php?add_role_id=<?=$row['user_id']?>" class='btn btn-sm btn-dark mx-2  p-2 button_user-addrole' ><i class="fa fa-add"></i> Add Role</a>
 
-                    <a href="./actions.php?delete_id=<?=$row['user_id']?>" class='btn btn-sm btn-danger p-2 button_edit-user'name="" > Delete</a>
+                    <a href="./actions.php?delete_id=<?=$row['user_id']?>" class='btn btn-sm btn-danger p-2 button_edit-user'name="" ><i class="fa fa-trash"></i> Delete</a>
                  </div>
            <?php echo "</td>
             </tr>";

@@ -74,8 +74,8 @@ if(!isset($_SESSION['user_email'])){
                     </div>
 
                     <div class="btn-group d-flex gap-2">
-                        <button type="submit" name="update_ads_Button" class="btn btn-lg btn-dark btn-lg update_ads_button w-50" >Update</button>
-                        <a href="welcome.php" class=' btn btn-primary btn-lg  text-center w-50'>Back</a>
+                        <button type="submit" name="update_ads_Button" class="btn btn-lg btn-dark btn-lg update_ads_button w-50" ><i class='fa fa-arrow-up'></i> Update</button>
+                        <a href="welcome.php" class=' btn btn-primary btn-lg  text-center w-50'><i class='fa fa-arrow-right'></i> Back</a>
                     </div>
                     <div class='text-dark text-center mt-3 d-flex justify-content-center gap-2'><strong>Statu: </strong> <?=($row['statu'] == 1)?"<i class='text-success text-center'>Aproved </p>":"<p class='text-danger text-center'> Pending </i>" ?></div>
                 </form>

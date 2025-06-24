@@ -58,10 +58,10 @@ if(!isset($_SESSION['user_email'])){
                         </label>
                     </div>
 
-                    <div class="btn-group">
-                       <button type="submit" name="button_adduser" class="btn btn-lg btn-dark">Add User</button>
+                    <div class="btn-group d-flex gap-2">
+                       <button type="submit" name="button_adduser" class="btn btn-lg btn-dark w-50"><i class='fa fa-user-plus'></i> Add User</button>
 
-                        <a href="welcome.php" class=' btn btn-lg btn-primary mx-2 p-2 text-center'>Back</a>
+                        <a href="welcome.php" class=' btn btn-lg btn-primary mx-2 p-2 text-center w-50'><i class='fa fa-arrow-right'></i> Back</a>
                     </div>
                 </form>
                   </div>

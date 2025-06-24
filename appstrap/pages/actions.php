@@ -62,12 +62,13 @@ if(!isset($_SESSION['user_email'])){
                         <label for="update_pass">
                         <b>Password</b>
                         <input type="text" name="update_pass" class="form-control form-control-lg update_pass" value="<?=$row['password_hash']?>" id="update_pass">
+
                         </label>
                     </div>
 
                     <div class="btn-group d-flex gap-2">
-                        <button type="submit" name="updateButton" class="btn btn-lg btn-dark btn-lg update_button w-50" >Update</button>
-                        <a href="welcome.php" class=' btn btn-primary btn-lg mx-2 p-2 text-center w-50'>Back</a>
+                        <button type="submit" name="updateButton" class="btn btn-lg btn-dark btn-lg update_button w-50" ><i class='fa fa-arrow-up'></i> Update</button>
+                        <a href="welcome.php" class=' btn btn-primary btn-lg mx-2 p-2 text-center w-50'><i class='fa fa-arrow-right'></i> Back</a>
                     </div>
                 </form>
                   </div>
@@ -130,8 +131,9 @@ if(!isset($_SESSION['user_email'])){
                     </div>
 
                     <div class="btn-group d-flex gap-2">
-                        <button type="submit" name="addRoleButton" class="btn btn-lg btn-dark btn-lg addRoleButton w-50" >Add Role</button>
-                        <a href="welcome.php" class=' btn btn-primary btn-lg mx-2 p-2 text-center w-50'>Back</a>
+                        <button type="submit" name="addRoleButton" class="btn btn-lg btn-dark btn-lg addRoleButton w-50">
+                            <i class='fa fa-add'></i> Add Role</button>
+                        <a href="welcome.php" class=' btn btn-primary btn-lg mx-2 p-2 text-center w-50'><i class='fas fa-arrow-right'></i> Back</a>
                     </div>
                     <div class="form-group text-right p-3"> 
                         <p class="text-center"><strong>Previous Role :</strong> <?=($row['roles']== 1)? 'Admin':(($row['roles']== 0)? 'Staff':'Officer') ?></p>

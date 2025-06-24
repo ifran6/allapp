@@ -69,8 +69,8 @@ if(!isset($_SESSION['user_email'])){
                     </div>
 
                     <div class="btn-group">
-                        <button type="submit" name="updateButton" class="btn btn-lg btn-dark btn-lg update_button" >Update</button>
-                        <a href="welcome.php" class=' btn btn-primary btn-lg mx-2 p-2 text-center'>Back</a>
+                        <button type="submit" name="updateButton" class="btn btn-lg btn-dark btn-lg update_button" > <i class='fa fa-arrow-up'></i>Update</button>
+                        <a href="welcome.php" class=' btn btn-primary btn-lg mx-2 p-2 text-center'><i class='fa fa-arrow-right'></i> Back</a>
                     </div>
                 </form>
                   </div>
@@ -90,7 +90,7 @@ if(!isset($_SESSION['user_email'])){
                  else {
                     die(mysqli_error($result));
                 }
-                 ?> <a href="welcome.php" class=' btn btn-secondary mx-2 p-2 text-center'>Back</a>
+                 ?> <a href="welcome.php" class=' btn btn-secondary mx-2 p-2 text-center'><i class='fa fa-arrow-right'></i> Back</a>
              <?php } ?>
               
             </div>

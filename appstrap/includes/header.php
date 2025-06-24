@@ -6,6 +6,7 @@
     <title>Standard/<?= $pageName."/".$topic ;?></title>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="../css/all.min.css">
 </head>
 <body>
 <div class="header">

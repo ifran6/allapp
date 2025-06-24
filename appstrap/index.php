@@ -13,6 +13,7 @@ include_once('includes/nav.php');
         <div class="row">
             <div class="col col-md-12 col-sm-12">
                 <p class="text-primary">
+                    <i class='far fa-user'></i>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, consectetur animi laborum, fuga voluptatum nisi doloremque inventore sed fugit voluptate odit? Soluta facere nisi necessitatibus ad odit distinctio ipsum exercitationem.
                 </p>
             </div>

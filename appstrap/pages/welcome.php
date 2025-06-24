@@ -38,7 +38,8 @@ if(!isset($_SESSION['user_email'])){
           <div class="row my-3">
           <div class="col md-4">
             <div class="card-box text-center">
-                <img src="../assets/images/me.jpg" alt="">
+                <!-- <img src="../assets/images/me.jpg" alt=""> -->
+                 <i class='fa fa-users'></i>
                 <p class="display-7">
                    <a href="#" class="viewUser text-dark"> 
                       (<?=userCounter($sql)?>) | All Users  (<?=userCounter($pending_sql)?>)
@@ -52,7 +53,8 @@ if(!isset($_SESSION['user_email'])){
 
       <div class="col md-4">
             <div class="card-box text-center">
-                <img src="../assets/images/me.jpg" alt="">
+                <!-- <img src="../assets/images/me.jpg" alt=""> -->
+                 <i class='fa fa-user-tie'></i>
                 <p class="display-7">
                    <a href="#" class="viewUser text-dark"> 
                        <?php  $sql = "SELECT COUNT(*) AS users FROM user_tab WHERE roles = 1";?>
@@ -65,7 +67,8 @@ if(!isset($_SESSION['user_email'])){
 
        <div class="col md-4">
             <div class="card-box text-center">
-                <img src="../assets/images/me.jpg" alt="">
+                <!-- <img src="../assets/images/me.jpg" alt=""> -->
+                 <i class='fa fa-user'></i>
                 <p class="display-7">
                    <?php  $sql = "SELECT COUNT(*) AS users FROM user_tab WHERE roles = 0";?>
                    <a href="#" class="viewUser text-dark"> 
@@ -85,7 +88,8 @@ if(!isset($_SESSION['user_email'])){
                 ?> 
 
             <div class="card-box text-center">
-                <img src="../assets/images/me.jpg" alt="">
+                <!-- <img src="../assets/images/me.jpg" alt=""> -->
+                 <i class='fa fa-comment'></i>
                 <p class="display-7">
                    <a href="#" class="viewUser text-dark"> 
                       (<?=productCounter($sql)?>) | Total Product  
@@ -97,7 +101,8 @@ if(!isset($_SESSION['user_email'])){
 
       <div class="col md-4">
             <div class="card-box text-center">
-                <img src="../assets/images/me.jpg" alt="">
+                <!-- <img src="../assets/images/me.jpg" alt=""> -->
+                 <i class='fa fa-comment'></i>
                 <p class="display-7">
                    <a href="#" class="viewUser text-dark"> 
                        <?php  $sql =  "SELECT COUNT(*) AS item FROM product WHERE is_active = 1 ";?>
@@ -110,11 +115,12 @@ if(!isset($_SESSION['user_email'])){
 
        <div class="col md-4">
             <div class="card-box text-center">
-                <img src="../assets/images/me.jpg" alt="">
+                <!-- <img src="../assets/images/me.jpg" alt=""> -->
+                 <i class='fa fa-comment'></i>
                 <p class="display-7">
                    <?php  $sql = "SELECT COUNT(*) AS item FROM product WHERE is_active = 0 ";?>
                    <a href="#" class="viewUser text-dark"> 
-                        (<?=productCounter($sql)?>) | Admins
+                        (<?=productCounter($sql)?>) | Pending Product
                       </p>
                     </a>
                 </p>
