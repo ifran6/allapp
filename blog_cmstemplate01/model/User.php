@@ -1,5 +1,6 @@
 <?php
 require_once 'db.php';
+require_once 'utility_fun.php';
 
 class User {
     private $db;
@@ -33,7 +34,8 @@ class User {
             if ($res['is_verified'] == 0) return "Verify email first.";
             session_start();
             $_SESSION['user'] = $res;
-            return "Welcome " . $res['username'];
+            return redirectView('welcome.php');
+            // "Welcome " . $res['username'];
         }
         return "Login failed";
     }
@@ -50,6 +52,13 @@ class User {
         $newpass = password_hash($newpass, PASSWORD_DEFAULT);
         $stmt = $this->db->prepare("UPDATE users SET password=?, reset_token=NULL WHERE reset_token=?");
         $stmt->bind_param("ss", $newpass, $token);
+        $stmt->execute();
+    }
+
+
+      function delete($id) {
+        $stmt = $this->db->prepare("UPDATE users SET del=? WHERE id=?");
+        $stmt->bind_param("s", $id);
         $stmt->execute();
     }
 }

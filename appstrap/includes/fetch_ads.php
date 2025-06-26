@@ -26,7 +26,7 @@ if($result){ $n =1 ;
      echo "<tr>
            <td>".$n++."</td>"."
             <td>".$row['ads_title']." </td>
-            <td class='more_info'>".$row['ads_description']."</td>
+            <td class='more_info'><P>".$row['ads_description']."</p></td>
              <td>"?>
              <?=($row['ads_category']) == 0 ? 'Non-tech':'Tech'?>
              

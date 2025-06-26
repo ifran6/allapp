@@ -90,8 +90,8 @@ if(!isset($_SESSION['user_email'])){
 
 
                     <div class="btn-group d-flex">
-                       <button type="submit" name="button_multiProduct" class="btn btn-md btn-dark w-50 batch__products">Add Product</button>
-                        <a href="#" class=' btn btn-md btn-secondary mx-2 p-2 text-center w-50 individual_product' id="individual_product">Single Add</a>
+                       <button type="submit" name="button_multiProduct" class="btn btn-md btn-dark w-50 batch__products"> <i class="fa fa-add"></i> Add Product</button>
+                        <a href="#" class=' btn btn-md btn-secondary mx-2 p-2 text-center w-50 individual_product' id="individual_product"> <i class="fa fa-arrow-right"></i> Single Add</a>
                         <a href="welcome.php" class=' btn btn-md btn-primary mx-2 p-2 text-center w-50'>Back</a>
                     </div>
                 </form>

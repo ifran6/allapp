@@ -179,7 +179,7 @@ if(!isset($_SESSION['user_email'])){
                 while($row = mysqli_fetch_assoc($result)){?>
                   <div class="form-box-container p-4 bg-light m-4">
                       <form class="form py-4 px-4 product_update_form" method="POST">
-                    <h3 class="text-center display-7 mb-3">Edit Product</h3>
+                    <h3 class="text-center display-7 mb-3">Edit Product <i class="fa fa-edit display-6"></i> </h3>
                     <p class='update-Emsg text-center'></p>
                     <input type="hidden" name="product_edit_id" value="<?=$row['id']?>">
 
@@ -220,8 +220,8 @@ if(!isset($_SESSION['user_email'])){
                     </div>
 
                     <div class="btn-group d-flex gap-2">
-                        <button type="submit" name="updateButton" class="btn btn-lg btn-dark btn-lg product_update_button w-50" >Update</button>
-                        <a href="welcome.php" class=' btn btn-primary btn-lg mx-2 p-2 text-center w-50'>Back</a>
+                        <button type="submit" name="updateButton" class="btn btn-lg btn-dark btn-lg product_update_button w-50" ><i class="fa fa-arrow-up"></i> Update</button>
+                        <a href="welcome.php" class=' btn btn-primary btn-lg mx-2 p-2 text-center w-50'><i class="fa fa-arrow-right"></i> Back</a>
                     </div> <p class="text-center mb-3 mt-3"><span>Price Tag: $</span><?=(($row['price'])/100)?></p>
                 </form>
                   

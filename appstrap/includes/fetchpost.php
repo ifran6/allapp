@@ -18,7 +18,8 @@ if($result){ $n =1 ;
          <th>Post name</th>
           <th>Category</th>
           <th>Content</th>
-            <th>Author</th>
+           <th>Author</th>
+            <th>Statu</th>
          
           <th>Action</th>
     </tr>
@@ -27,11 +28,14 @@ if($result){ $n =1 ;
      echo "<tr>
            <td>".$n++."</td>"."
             <td>".$row['title']." </td>
-            <td>".$row['category']." </td>
+            <td>"?> 
+            <?=$row['category'] == 0 ? 'Non-Tech':'Technology'?>
+            <?php echo " </td>
             <td>".$row['content']." </td>
-             <td>".$row['author']." </td>
+            <td>".$row['author']." </td>" ?>
+             <td> <?=$row['statu'] == 0 ? "<button class='btn-warning text-center p-2 btn-sm' role='alert'>Pending </button>":"<button class='btn-success text-center p-2 btn-sm' role='alert'>Approved </button>"?></td>
           
-            <td>" ?>
+           <?php echo "<td>" ?>
                 <div class='btn-group d-flex'>
                     <a href="./post_actions.php?edit_post_id=<?=$row['id']?>" class='btn btn-sm btn-primary mx-2  p-2 button_edit_post w-50' title="<?="created on: ".$row['created_at']?>" > <i class='fa fa-folder-open'></i> Open</a>
 

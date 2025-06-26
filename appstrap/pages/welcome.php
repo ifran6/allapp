@@ -34,7 +34,7 @@ if(!isset($_SESSION['user_email'])){
   <div class="main-content">
     <div class="dashboard-title">Dashboard</div>
 
-      <div class="d-users">
+      <div class="d-users bg-light">
           <div class="row my-3">
           <div class="col md-4">
             <div class="card-box text-center my-4">
@@ -45,7 +45,7 @@ if(!isset($_SESSION['user_email'])){
                       (<?=userCounter($sql)?>) | All Users  (<?=userCounter($pending_sql)?>)
                       <br>
                         Pending | Active
-                      (<?=userCounter($is_active_sql)?>)</p>
+                      <span class="badge bg-secondary"><?=userCounter($is_active_sql)?></span></p>
                     </a>
                 </p>
          </div>
@@ -58,7 +58,7 @@ if(!isset($_SESSION['user_email'])){
                 <p class="display-7">
                    <a href="#" class="viewUser text-dark"> 
                        <?php  $sql = "SELECT COUNT(*) AS users FROM user_tab WHERE roles = 1";?>
-                       <?=userCounter($sql)?> | Staffs
+                       <span class="badge bg-secondary"><?=userCounter($sql)?> </span> | Staffs
                       </p>
                     </a>
                 </p>
@@ -72,7 +72,7 @@ if(!isset($_SESSION['user_email'])){
                 <p class="display-7">
                    <?php  $sql = "SELECT COUNT(*) AS users FROM user_tab WHERE roles = 0";?>
                    <a href="#" class="viewUser text-dark"> 
-                        (<?=userCounter($sql)?>) | Admins
+                        <span class="badge bg-secondary"><?=userCounter($sql)?></span> | Admins
                       </p>
                     </a>
                 </p>
@@ -92,7 +92,7 @@ if(!isset($_SESSION['user_email'])){
                  <i class='fa fa-briefcase display-3'></i>
                 <p class="display-7">
                    <a href="#" class="viewUser text-dark"> 
-                      (<?=productCounter($sql)?>) | Total Product  
+                      <span class="badge bg-secondary"><?=productCounter($sql)?></span> | Total Product  
                      </p>
                     </a>
                 </p>
@@ -106,7 +106,7 @@ if(!isset($_SESSION['user_email'])){
                 <p class="display-7">
                    <a href="#" class="viewUser text-dark"> 
                        <?php  $sql =  "SELECT COUNT(*) AS item FROM product WHERE is_active = 1 ";?>
-                       <?=productCounter($sql)?> | Approved Products
+                          <span class="badge bg-secondary"><?=productCounter($sql)?></span> | Approved Products
                       </p>
                     </a>
                 </p>
@@ -120,7 +120,7 @@ if(!isset($_SESSION['user_email'])){
                 <p class="display-7">
                    <?php  $sql = "SELECT COUNT(*) AS item FROM product WHERE is_active = 0 ";?>
                    <a href="#" class="viewUser text-dark"> 
-                        (<?=productCounter($sql)?>) | Pending Product
+                        <span class="badge bg-secondary"><?=productCounter($sql)?></span> | Pending Product
                       </p>
                     </a>
                 </p>
@@ -139,8 +139,8 @@ if(!isset($_SESSION['user_email'])){
                 <!-- <img src="../assets/images/me.jpg" alt=""> -->
                  <i class='fa fa-bullhorn display-3'></i>
                 <p class="display-7">
-                   <a href="#" class="viewUser text-dark"> 
-                      (<?=productCounter($sql)?>) | Total Product  
+                   <a href="#" class=" text-dark"> 
+                      <span class="badge bg-secondary"><?=productCounter($sql)?></span> | Total ADs  
                      </p>
                     </a>
                 </p>
@@ -154,7 +154,7 @@ if(!isset($_SESSION['user_email'])){
                 <p class="display-7">
                    <a href="#" class="text-dark"> 
                        <?php  $sql =  "SELECT COUNT(*) AS item FROM ads_tab WHERE is_active = 1 ";?>
-                       <?=productCounter($sql)?> | Approved ADs
+                      <span class="badge bg-secondary"><?=productCounter($sql)?></span> | Approved ADs
                       </p>
                     </a>
                 </p>
@@ -168,7 +168,7 @@ if(!isset($_SESSION['user_email'])){
                 <p class="display-7">
                    <?php  $sql = "SELECT COUNT(*) AS item FROM ads_tab WHERE is_active = 0 ";?>
                    <a href="#" class="viewUser text-dark"> 
-                        (<?=productCounter($sql)?>) | Pending ADs
+                        <span class="badge bg-secondary"><?=productCounter($sql)?></span> | Pending ADs
                       </p>
                     </a>
                 </p>
@@ -191,7 +191,7 @@ if(!isset($_SESSION['user_email'])){
                  <i class='fa fa-comments display-3'></i>
                 <p class="display-7">
                    <a href="#" class="text-dark"> 
-                      (<?=productCounter($sql)?>) | Total Post  
+                      <span class="badge bg-secondary"><?=productCounter($sql)?></span> | Total Post  
                      </p>
                     </a>
                 </p>
@@ -205,7 +205,7 @@ if(!isset($_SESSION['user_email'])){
                 <p class="display-7">
                    <a href="#" class="viewUser text-dark"> 
                        <?php  $sql =  "SELECT COUNT(*) AS item FROM posts WHERE statu = 1 ";?>
-                       <?=productCounter($sql)?> | Approved Post
+                     <span class="badge bg-secondary">  <?=productCounter($sql)?></span> | Approved Post
                       </p>
                     </a>
                 </p>
@@ -219,7 +219,7 @@ if(!isset($_SESSION['user_email'])){
                 <p class="display-7">
                    <?php  $sql = "SELECT COUNT(*) AS item FROM posts WHERE statu = 0 ";?>
                    <a href="#" class=" text-dark"> 
-                        (<?=productCounter($sql)?>) | Pending Post
+                        <span class="badge bg-secondary"><?=productCounter($sql)?></span> | Pending Post
                       </p>
                     </a>
                 </p>

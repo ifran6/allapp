@@ -1,0 +1,62 @@
+Responsive
+h3{
+    /* font-size: 1.5rem; */
+    font-size: clamp(1.8rem, cal(7vw+1rem), 5rem);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    /* aspect-ratio: 9/16; */
+    /* aspect-ratio: 16/9; */
+}
+
+div{
+    height:100vh;
+    height:100dvh;
+}
+
+.more_info{
+    width:30rem;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    height: 1.5em;
+    font-size: 1.5rem;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    grid-template-areas: 'header header'
+     'aside content' 
+     'footer footer';
+}
+
+.header{
+    background-color: red;
+    grid-area: header;
+    height: 10dvb;
+    height: 10vh;
+}
+
+.aside{
+    background-color: aqua;
+    grid-area: aside;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.content{
+    background-color: brown;
+    grid-area: content ;
+    flex-grow: 1;
+    width: 100%;}
+
+.footer{
+    background-color: aquamarine;
+    grid-area: footer;
+      height: 10dvb;
+    height: 10vh;
+
+}
