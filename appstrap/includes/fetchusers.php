@@ -10,7 +10,7 @@ if($result){ $n =1 ;
   ?> 
    <div class='p-4 bg-light'>
     <h3 class="p-2 mt-2 text-dark text-center"> <strong>User Details</strong></h3>
-    <div class="my-3"><a href="add_user.php" class="btn btn-secondary" ><i class="fa fa-add"></i> Add User</a></div>
+    <div class="my-3"><a href="add_user.php" class="btn btn-secondary" ><i class="fa fa-pen"></i> Add User</a></div>
     <table class="table table-border">
       <tr class='bg-dark text-light p-4'>
         <th>#</th>

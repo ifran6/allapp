@@ -31,10 +31,11 @@ section{
 }
 
 .logo-img{
-    width:100px;
-    height:auto;
+    width:8rem;
+    height:5rem;
     object-fit: contain;
     aspect-ratio: 1/1;
+
     /* border:1px outset red; */
 }
 
@@ -49,18 +50,20 @@ aspect-ratio: 16/9;
     display: flex;
     width:100%;
     flex-direction:column;
-    background-image: url("../images/me.jpg");
+    background-image: url("../images/bg_index.png");
     background-position: center;
     background-repeat: no-repeat;
     aspect-ratio: 16/9;
     object-fit: cover;
-    background-blend-mode:lighten;
+    background-blend-mode:light;
     justify-content: end;
     align-items: center;
     gap:20px;
     color:#000;
-    background-color:rgb(10, 177, 248);
-    height: 50vh;
+    background-color:rgb(220, 160, 48);
+
+    /* background-color:rgb(26, 78, 103); */
+    height: 70vh;
 }
 
 .content-box{
@@ -145,6 +148,7 @@ a:hover, .nav-linker:hover{
     width:40%;
     display: flex;
     flex-direction: column;
+    height: fit-content;
     padding:5%;
     /* background-color: red; */
 
@@ -189,6 +193,7 @@ a:hover, .nav-linker:hover{
 
 input[type='text'],
 input[type='password'], 
+textarea,
 input[type='password'], 
 select, label, button{
  width:100%;
@@ -226,5 +231,12 @@ label .forgotten-pass{
     color: cadetblue !important;
 }
 
+
+#msg{
+    resize: none;
+    width:25vw;
+    height:50vh;
+    height: 15vb;
+}
 
 

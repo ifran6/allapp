@@ -10,8 +10,9 @@ include_once('../includes/sub-header.php');
     <div class="form__box-container shadow">
         <!-- <div class="col-md-5 col-sm-5 p-4 "> -->
                
-                 <div class="image-box-container">
-                 <img src="../assets/images/me.jpg"  class= "site-img" alt="login-img">
+                 <div class="image__box-container shadow">
+                 <!-- <img src="../assets/images/bg_index.png"  class= "site-img" alt="login-img"> -->
+                 
                  </div>
          
                 <div class="form-box" id="loginForm">

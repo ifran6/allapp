@@ -24,7 +24,7 @@ if(!isset($_SESSION['user_email'])){
     
 
   <div class="sidebar">
-    <img src="../assets/images/me.jpg" class="admin-img" alt="Admin">
+    <img src="../assets/images/avatar.jpg" class="admin-img" alt="Admin">
     <p class="text-center"><?php echo ucwords($_SESSION['user_names']); ?></p>
      <?php
         if(isset($_SESSION['user_email'])) include_once('../includes/adm_nav.php');
@@ -42,10 +42,11 @@ if(!isset($_SESSION['user_email'])){
                  <i class='fa fa-users display-3'></i>
                 <p class="display-7">
                    <a href="#" class="viewUser text-dark"> 
-                      (<?=userCounter($sql)?>) | All Users  (<?=userCounter($pending_sql)?>)
+                     <span class="badge bg-secondary"><?=userCounter($sql)?></span> All Users 
                       <br>
+                      <span class="badge bg-danger"><?=userCounter($pending_sql)?></span>
                         Pending | Active
-                      <span class="badge bg-secondary"><?=userCounter($is_active_sql)?></span></p>
+                      <span class="badge bg-success"><?=userCounter($is_active_sql)?></span></p>
                     </a>
                 </p>
          </div>
@@ -106,7 +107,7 @@ if(!isset($_SESSION['user_email'])){
                 <p class="display-7">
                    <a href="#" class="viewUser text-dark"> 
                        <?php  $sql =  "SELECT COUNT(*) AS item FROM product WHERE is_active = 1 ";?>
-                          <span class="badge bg-secondary"><?=productCounter($sql)?></span> | Approved Products
+                          <span class="badge bg-success"><?=productCounter($sql)?></span> | Approved Products
                       </p>
                     </a>
                 </p>
@@ -120,7 +121,7 @@ if(!isset($_SESSION['user_email'])){
                 <p class="display-7">
                    <?php  $sql = "SELECT COUNT(*) AS item FROM product WHERE is_active = 0 ";?>
                    <a href="#" class="viewUser text-dark"> 
-                        <span class="badge bg-secondary"><?=productCounter($sql)?></span> | Pending Product
+                        <span class="badge bg-danger"><?=productCounter($sql)?></span> | Pending Product
                       </p>
                     </a>
                 </p>
@@ -154,7 +155,7 @@ if(!isset($_SESSION['user_email'])){
                 <p class="display-7">
                    <a href="#" class="text-dark"> 
                        <?php  $sql =  "SELECT COUNT(*) AS item FROM ads_tab WHERE is_active = 1 ";?>
-                      <span class="badge bg-secondary"><?=productCounter($sql)?></span> | Approved ADs
+                      <span class="badge bg-success"><?=productCounter($sql)?></span> | Approved ADs
                       </p>
                     </a>
                 </p>
@@ -168,7 +169,7 @@ if(!isset($_SESSION['user_email'])){
                 <p class="display-7">
                    <?php  $sql = "SELECT COUNT(*) AS item FROM ads_tab WHERE is_active = 0 ";?>
                    <a href="#" class="viewUser text-dark"> 
-                        <span class="badge bg-secondary"><?=productCounter($sql)?></span> | Pending ADs
+                        <span class="badge bg-danger"><?=productCounter($sql)?></span> | Pending ADs
                       </p>
                     </a>
                 </p>
@@ -205,7 +206,7 @@ if(!isset($_SESSION['user_email'])){
                 <p class="display-7">
                    <a href="#" class="viewUser text-dark"> 
                        <?php  $sql =  "SELECT COUNT(*) AS item FROM posts WHERE statu = 1 ";?>
-                     <span class="badge bg-secondary">  <?=productCounter($sql)?></span> | Approved Post
+                     <span class="badge bg-success">  <?=productCounter($sql)?></span> | Approved Post
                       </p>
                     </a>
                 </p>
@@ -219,7 +220,7 @@ if(!isset($_SESSION['user_email'])){
                 <p class="display-7">
                    <?php  $sql = "SELECT COUNT(*) AS item FROM posts WHERE statu = 0 ";?>
                    <a href="#" class=" text-dark"> 
-                        <span class="badge bg-secondary"><?=productCounter($sql)?></span> | Pending Post
+                        <span class="badge bg-danger"><?=productCounter($sql)?></span> | Pending Post
                       </p>
                     </a>
                 </p>

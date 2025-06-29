@@ -26,7 +26,7 @@ include_once('includes/nav.php');
                       </div>
 
                       <div class="p-2">
-                        <div class="about-title display-6 p-2">Who we are?</div>
+                        <div class="about-title display-6 p-2 display-grid">Who we are?</div>
                         <p class="p-3">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, laborum velit, quas possimus asperiores voluptatibus aspernatur quia qui facilis dolorum eaque pariatur alias. Vero, expedita blanditiis! Deleniti error rem beatae.
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim maiores optio id sequi cumque, sit debitis iusto inventore fugit, officiis, cupiditate voluptates non eaque. Earum laudantium sit eveniet recusandae ad.

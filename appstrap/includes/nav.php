@@ -1,7 +1,8 @@
 <div class="container-fluid container-box">
      <div class="row">
-        <div class="col-10">
-            <div class="nav-box">
+        <div class="col-10 d-flex gap-2">
+           <div class="nav-aside col-5"></div>
+                 <div class="nav-box">
             <ul class="super-nav">
                 <li><a href="index.php" class="nav-linker">Home</a></li>
                 <li><a href="about.php" class="nav-linker">About</a>

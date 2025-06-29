@@ -28,7 +28,7 @@ if($result){ $n =1 ;
            <td>".$n++."</td>"."
             <td>".$row['product_name']." </td>
             <td>".$row['category']." </td>
-            <td>".$row['product_description']." </td>
+            <td>".$row['product_description']."</td>
             <td>".$row['qty']."</td>
           <td>".$row['price']."</td>
             <td>" ?>

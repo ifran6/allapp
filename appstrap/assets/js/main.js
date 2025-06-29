@@ -143,3 +143,32 @@ registrationFormHandler();
 loginFormHandler();
 formSwitchHandler();
 
+
+const contactForm = document.querySelector('.contact-form');
+
+if(contactForm){
+    contactForm.addEventListener('submit', (e)=>{
+        const contactFeedback = document.querySelector('.contact-feedback');
+        e.preventDefault();
+        contactFeedback.innerHTML = "<p class='text-info text-center fa fa-spinner fa-spin mx-2'></p> please wait..";
+        const contactForm = new FormData(e.target);
+        setTimeout(function(){
+          fetch('./includes/contact_form.php',{
+            method:'POST',
+            body:contactForm,
+          }) .then(response => {
+                    if(!response.ok){
+                        throw new Error(`Server responded with status: ${response.status}`);
+                    }
+                   
+                return response.text();
+                })
+                .then(data => {contactFeedback.innerHTML = data;
+                    //  loginHandler.reset();
+                    })
+                .catch(err => {
+                contactFeedback.innerHTML = "Err"+err;
+                });
+        }, 2000);
+    });
+}

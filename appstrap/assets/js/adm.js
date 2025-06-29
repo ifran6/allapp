@@ -20,7 +20,7 @@ const viewUsers = document.querySelector('.viewUser');
     if(viewUsers){
         viewUsers.addEventListener('click', ()=>{
              const displayUsers = document.querySelector('.d-users');
-            displayUsers.innerHTML = "<P class='text-info text-center p-2'> Loading users.....</p>";
+            displayUsers.innerHTML = "<P class='text-info text-center p-2'> Loading users, please wait...</p>";
 
             setTimeout(()=> {
                 fetch('../includes/fetchusers.php')
@@ -786,7 +786,7 @@ if(adsUpdateForm){
         const errBox = document.querySelector('.errBox');
 
         if (confirm("Are you sure you want to delete this product?")) {
-            errBox.innerHTML = "<p class='text-info'>Deleting product...</p>";
+            errBox.innerHTML = "<p class='text-info'>Deleting product, please wait...</p>";
 
             const formData = new FormData();
             formData.append('id', dataId);

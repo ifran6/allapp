@@ -72,6 +72,14 @@ function inserter($username, $email, $password, $first_name, $last_name, $is_act
                 
 }
 
+function insert_data($sql){
+    global $conn;
+
+    if($result = $conn->query($sql)){
+        return $result;
+    }
+}
+
 
 function updates($sql, $updateId){
        global $conn;

@@ -13,7 +13,7 @@
     <div class="header-left-box title-box">
         <a href="index.php" class="nav-linker nav-title">
             
-                <img src="./assets/images/me.jpg" alt="Enrich-Technologies" class="logo-img">
+                <img src="./assets/images/bg_index.png" alt="Enrich-Technologies" class="logo-img">
                
             <span><h4>Enrich-Technologies</h4></span>
         </a>

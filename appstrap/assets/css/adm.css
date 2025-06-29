@@ -1,5 +1,27 @@
+:root {
+    --primary-color:steelblue;
+    --secondary-color:white;
+    --red-color:red;
+    --txt-primary:orange;
+    --txt-secondary:indianred;
+}
 body{
-    position: relative;
+    /* position: relative; */
+    background-color:var(--red-color);
+}
+
+.image__box-container{
+    width:50%;
+    padding:1rem;
+    height:100vh;
+    background-image: url('../images/bg_index.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode:light;
+    min-height: 70vh;
+    height: fit-content;
+    background-color: rgb(0, 70, 78);
+
 }
 
 
@@ -21,10 +43,13 @@ body{
 }
 
 .admin-img{
-    width:100px;
+    width:5rem;
+    height: 5rem;
     border-radius:50%;
     display: block;
     margin: 0 auto;
+    box-sizing:content-box;
+    border-radius:10px solid #fff;
 }
 
 .sidebar div a{
@@ -73,12 +98,13 @@ textarea{
     text-overflow:ellipsis;
 } */
 
-td p{
+td p, .more_info p{
     width:20rem;
     overflow:hidden;
-    text-overflow:ellipsis;
-    /* height: 1.5em; */
-    /* line-height: 2; */
+    text-overflow:auto;
+    height: 2;
+    box-sizing: content-box;
+    line-height:1.2;
     font-size: 1.5rem;
     /* color:red; */
 }
